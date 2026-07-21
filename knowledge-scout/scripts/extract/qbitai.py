@@ -1,1 +1,43 @@
-IiIi6YeP5a2Q5L2NIOKAlCBSU1MgQUnlupTnlKjliqjmgIEiIiIKCmltcG9ydCBzeXMKZnJvbSBwYXRobGliIGltcG9ydCBQYXRoCnN5cy5wYXRoLmluc2VydCgwLCBzdHIoUGF0aChfX2ZpbGVfXykucmVzb2x2ZSgpLnBhcmVudC5wYXJlbnQpKQppbXBvcnQgYWlvaHR0cApmcm9tIHV0aWxzLnJzc19mZXRjaGVyIGltcG9ydCBmZXRjaF9yc3MKZnJvbSB1dGlscy5pbnRlcmVzdF9maWx0ZXIgaW1wb3J0IGNsYXNzaWZ5X2FydGljbGUKZnJvbSAuYmFzZSBpbXBvcnQgQmFzZUV4dHJhY3RvciwgQXJ0aWNsZQoKCmNsYXNzIFFiaXRhaUV4dHJhY3RvcihCYXNlRXh0cmFjdG9yKToKICAgIEZFRURfVVJMID0gImh0dHBzOi8vd3d3LnFiaXRhaS5jb20vZmVlZCIKCiAgICBhc3luYyBkZWYgZmV0Y2goc2VsZikgLT4gbGlzdFtBcnRpY2xlXToKICAgICAgICBhcnRpY2xlcyA9IFtdCiAgICAgICAgaGVhZGVycyA9IHsKICAgICAgICAgICAgIlVzZXItQWdlbnQiOiAiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IgogICAgICAgIH0KICAgICAgICBhc3luYyB3aXRoIGFpb2h0dHAuQ2xpZW50U2Vzc2lvbihoZWFkZXJzPWhlYWRlcnMpIGFzIHNlc3Npb246CiAgICAgICAgICAgIGl0ZW1zID0gYXdhaXQgZmV0Y2hfcnNzKHNlc3Npb24sIHNlbGYuRkVFRF9VUkwpCiAgICAgICAgICAgIGlmIG5vdCBpdGVtczoKICAgICAgICAgICAgICAgIHJldHVybiBhcnRpY2xlcwoKICAgICAgICAgICAgZm9yIGl0ZW0gaW4gaXRlbXNbOjMwXToKICAgICAgICAgICAgICAgIHRpdGxlID0gaXRlbVsidGl0bGUiXQogICAgICAgICAgICAgICAgc3VtbWFyeSA9IGl0ZW1bInN1bW1hcnkiXQogICAgICAgICAgICAgICAgY2F0ZWdvcnksIHNjb3JlID0gY2xhc3NpZnlfYXJ0aWNsZSh0aXRsZSwgc3VtbWFyeSkKICAgICAgICAgICAgICAgIGlmIHNjb3JlIDwgMi4wOgogICAgICAgICAgICAgICAgICAgIGNvbnRpbnVlCgogICAgICAgICAgICAgICAgYXJ0aWNsZXMuYXBwZW5kKEFydGljbGUoCiAgICAgICAgICAgICAgICAgICAgcGxhdGZvcm09InFiaXRhaSIsCiAgICAgICAgICAgICAgICAgICAgdGl0bGU9dGl0bGUsCiAgICAgICAgICAgICAgICAgICAgdXJsPWl0ZW1bInVybCJdLAogICAgICAgICAgICAgICAgICAgIHN1bW1hcnk9c3VtbWFyeVs6MjAwXSwKICAgICAgICAgICAgICAgICAgICBhdXRob3I9aXRlbVsiYXV0aG9yIl0sCiAgICAgICAgICAgICAgICAgICAgcHVibGlzaGVkPWl0ZW1bInB1Ymxpc2hlZCJdLAogICAgICAgICAgICAgICAgICAgIGNhdGVnb3J5PWNhdGVnb3J5LAogICAgICAgICAgICAgICAgICAgIHJhd19zY29yZT1zY29yZSwKICAgICAgICAgICAgICAgICAgICBtZXRhZGF0YT17InNvdXJjZSI6ICLph4/lrZDkvY0ifSwKICAgICAgICAgICAgICAgICkpCiAgICAgICAgcmV0dXJuIGFydGljbGVzCg==
+"""閲忓瓙浣?鈥?RSS AI搴旂敤鍔ㄦ€?""
+
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+import httpx
+from utils.rss_fetcher import fetch_rss
+from utils.interest_filter import classify_article
+from .base import BaseExtractor, Article
+
+
+class QbitaiExtractor(BaseExtractor):
+    FEED_URL = "https://www.qbitai.com/feed"
+
+    async def fetch(self) -> list[Article]:
+        articles = []
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        }
+        async with httpx.AsyncClient(headers=headers) as session:
+            items = await fetch_rss(session, self.FEED_URL)
+            if not items:
+                return articles
+
+            for item in items[:30]:
+                title = item["title"]
+                summary = item["summary"]
+                category, score = classify_article(title, summary)
+                if score < 2.0:
+                    continue
+
+                articles.append(Article(
+                    platform="qbitai",
+                    title=title,
+                    url=item["url"],
+                    summary=summary[:200],
+                    author=item["author"],
+                    published=item["published"],
+                    category=category,
+                    raw_score=score,
+                    metadata={"source": "閲忓瓙浣?},
+                ))
+        return articles
