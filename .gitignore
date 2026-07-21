@@ -1,1 +1,23 @@
-X19weWNhY2hlX18vCioucHljCioubG9nCmNmKi5sb2cKd2ViXyoubG9nCiouYmF0CmRhZW1vbi5weQp0ZXN0XyoucHkKcmVwYWlyLSoubWQKLnZzY29kZS8KLmlkZWEvCiouZWdnLWluZm8v
+# Byte-compiled / optimized
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Cloudflare temp
+cloudflared*
+cert.pem
+
+# OS
+.DS_Store
+Thumbs.db
