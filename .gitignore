@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.log
+cf*.log
+web_*.log
+*.bat
+daemon.py
+test_*.py
+repair-*.md
+.vscode/
+.idea/
+*.egg-info/

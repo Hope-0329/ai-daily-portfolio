@@ -1,0 +1,1 @@
+# knowledge-scout scripts package

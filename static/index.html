@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI日报 MCP Server — Demo</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --border: #2a2d3a;
+    --text: #e1e4ed;
+    --sub: #8b8fa3;
+    --accent: #3b82f6;
+    --accent2: #6366f1;
+    --green: #22c55e;
+    --yellow: #eab308;
+    --red: #ef4444;
+    --radius: 12px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #1e1f35 0%, #181a29 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .header-left h1 {
+    font-size: 22px; font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .header-left .badge {
+    display: inline-block; margin-top: 4px;
+    font-size: 11px; padding: 2px 8px; border-radius: 4px;
+    background: rgba(99,102,241,0.15); color: var(--accent2);
+    border: 1px solid rgba(99,102,241,0.3);
+  }
+
+  .btn {
+    padding: 9px 20px; border: none; border-radius: 8px;
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    transition: all .2s; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #2563eb; transform: translateY(-1px); }
+  .btn-secondary { background: var(--border); color: var(--text); }
+  .btn-secondary:hover { background: #353855; }
+  .btn-green { background: #166534; color: #4ade80; }
+  .btn-green:hover { background: #1a7a3a; }
+  .btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+  .stats-bar {
+    display: flex; gap: 16px; padding: 16px 32px;
+    overflow-x: auto; border-bottom: 1px solid var(--border);
+  }
+  .stat-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 12px 20px;
+    min-width: 140px; text-align: center;
+  }
+  .stat-card .num { font-size: 28px; font-weight: 700; }
+  .stat-card .label { font-size: 12px; color: var(--sub); margin-top: 2px; }
+  .num.accent { color: var(--accent); }
+  .num.green { color: var(--green); }
+  .num.yellow { color: var(--yellow); }
+
+  .container { max-width: 1400px; margin: 0 auto; padding: 24px 32px; }
+  .grid { display: grid; grid-template-columns: 240px 1fr; gap: 24px; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+
+  .source-panel {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px;
+    height: fit-content; position: sticky; top: 24px;
+  }
+  .source-panel h3 {
+    font-size: 14px; color: var(--sub); margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .source-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 6px 8px; border-radius: 6px; cursor: pointer;
+    font-size: 13px; transition: background .15s;
+  }
+  .source-item:hover { background: rgba(255,255,255,.03); }
+  .source-item input { accent-color: var(--accent); }
+  .source-item .tag {
+    font-size: 10px; padding: 1px 5px; border-radius: 3px;
+    background: rgba(99,102,241,0.2); color: var(--accent2);
+    margin-left: auto;
+  }
+
+  .articles-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 16px; flex-wrap: wrap; gap: 8px;
+  }
+  .articles-header h2 { font-size: 18px; }
+  .article-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px;
+    transition: border-color .2s, transform .15s;
+  }
+  .article-card:hover { border-color: var(--accent); transform: translateX(4px); }
+  .article-card .level {
+    display: inline-block; font-size: 11px; padding: 2px 8px;
+    border-radius: 4px; margin-right: 8px; font-weight: 600;
+  }
+  .level-deep { background: rgba(99,102,241,0.2); color: #a5b4fc; }
+  .level-mid { background: rgba(234,179,8,0.15); color: #fbbf24; }
+  .level-shallow { background: rgba(139,143,163,0.15); color: var(--sub); }
+  .article-card .title {
+    font-size: 16px; font-weight: 600; color: var(--text);
+    text-decoration: none; display: inline;
+  }
+  .article-card .title:hover { color: var(--accent); }
+  .article-card .meta {
+    display: flex; gap: 12px; margin-top: 8px;
+    font-size: 12px; color: var(--sub); flex-wrap: wrap;
+  }
+  .article-card .summary {
+    margin-top: 10px; font-size: 13px; color: var(--sub);
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .article-card .actions { margin-top: 10px; display: flex; gap: 6px; }
+
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,.7);
+    z-index: 100; align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); max-width: 800px; width: 100%;
+    max-height: 85vh; overflow-y: auto; padding: 28px;
+  }
+  .modal h2 { font-size: 20px; margin-bottom: 16px; }
+  .modal .section { margin-bottom: 16px; }
+  .modal .section h3 {
+    font-size: 14px; color: var(--accent2); margin-bottom: 8px;
+  }
+  .modal .section p, .modal .section li {
+    font-size: 14px; color: var(--text); line-height: 1.7;
+  }
+  .modal .section ul { padding-left: 20px; }
+  .modal .section ul li { margin-bottom: 4px; }
+  .modal-close {
+    float: right; background: none; border: none;
+    color: var(--sub); font-size: 24px; cursor: pointer;
+    padding: 0 4px; line-height: 1;
+  }
+  .modal-close:hover { color: var(--text); }
+  .warn-box {
+    background: rgba(234,179,8,0.1);
+    border: 1px solid rgba(234,179,8,0.3);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+  }
+
+  .loading {
+    display: none; text-align: center; padding: 40px;
+    color: var(--sub); font-size: 14px;
+  }
+  .loading.active { display: block; }
+  .spinner {
+    display: inline-block; width: 40px; height: 40px;
+    border: 3px solid var(--border); border-top-color: var(--accent);
+    border-radius: 50%; animation: spin .8s linear infinite;
+    margin-bottom: 12px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .toast {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--green); color: #000; z-index: 200;
+    padding: 12px 20px; border-radius: 8px;
+    font-size: 14px; font-weight: 600;
+    opacity: 0; transform: translateY(10px);
+    transition: all .3s;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  .empty {
+    text-align: center; padding: 60px 20px;
+    color: var(--sub); font-size: 14px;
+  }
+  .empty .icon { font-size: 48px; margin-bottom: 12px; opacity: .3; }
+
+  .footer-info {
+    text-align: center; padding: 24px; font-size: 12px;
+    color: var(--sub); border-top: 1px solid var(--border); margin-top: 32px;
+    line-height: 1.8;
+  }
+  .footer-info code {
+    background: rgba(255,255,255,.05); padding: 2px 6px;
+    border-radius: 4px; font-size: 11px;
+  }
+  .footer-info a { color: var(--accent); text-decoration: none; }
+  .footer-info a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <h1>📰 AI日报 MCP Server</h1>
+    <span class="badge">MCP Protocol v2024-11-05</span>
+    <span class="badge" style="margin-left:6px;background:rgba(34,197,94,0.15);color:#4ade80;border-color:rgba(34,197,94,0.3);">4 Tools</span>
+  </div>
+  <div class="header-right">
+    <button class="btn btn-primary" onclick="doFetch()" id="btnFetch">⚡ 抓取新闻</button>
+    <button class="btn btn-green" onclick="doSave()" id="btnSave" disabled>💾 保存到 Obsidian</button>
+  </div>
+</div>
+
+<div class="stats-bar" id="statsBar">
+  <div class="stat-card"><div class="num accent">—</div><div class="label">原始采集</div></div>
+  <div class="stat-card"><div class="num green">—</div><div class="label">深度文章</div></div>
+  <div class="stat-card"><div class="num yellow">—</div><div class="label">中度文章</div></div>
+  <div class="stat-card"><div class="num">—</div><div class="label">信源覆盖</div></div>
+  <div class="stat-card" id="statTime" style="display:none"><div class="num" style="font-size:13px">—</div><div class="label">更新时间</div></div>
+</div>
+
+<div class="container">
+  <div class="grid">
+    <div class="source-panel" id="sourcePanel">
+      <h3>📡 信源选择</h3>
+      <div id="sourceList"><div style="color:var(--sub);font-size:13px;text-align:center;padding:20px;">加载中…</div></div>
+    </div>
+
+    <div>
+      <div class="articles-header">
+        <h2>📋 文章列表</h2>
+        <span style="font-size:12px;color:var(--sub)" id="resultInfo"></span>
+      </div>
+
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <div>正在抓取 9 个平台的 AI 新闻...</div>
+        <div style="font-size:12px;color:var(--sub);margin-top:8px">预计耗时 15-30 秒</div>
+      </div>
+
+      <div id="articlesContainer">
+        <div class="empty">
+          <div class="icon">📭</div>
+          <div>点击 <strong>"⚡ 抓取新闻"</strong> 开始采集<br>
+          <span style="font-size:12px;color:var(--sub)">会从9个平台抓取AI领域最新文章，自动评分排序</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modalContent" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modalInner">
+      <div style="text-align:center;padding:40px;color:var(--sub)">
+        <div class="spinner"></div>
+        <div>正在深度阅读...</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="footer-info">
+  基于 <code>knowledge-scout V3</code> 知识管线 ·
+  9 个信源 (RSS + API) ·
+  MCP 协议标准化接口 ·
+  支持 Cursor / Cline / Claude Desktop 等任何 MCP 客户端
+  <br><br>
+  🔗 <strong>分享给面试官</strong>：<br>
+  局域网直接用 <code id="localUrl">检测中...</code><br>
+  跨网络需要 <a href="https://ngrok.com" target="_blank">ngrok</a> 穿透：<code>ngrok http 8765</code>
+</div>
+
+<script>
+let sources = [];
+let lastResult = null;
+let activeFetch = false;
+
+async function init() {
+  try {
+    const res = await fetch('/api/sources');
+    const data = await res.json();
+    sources = data.sources;
+    renderSources();
+  } catch(e) {
+    document.getElementById('sourceList').innerHTML =
+      '<div style="color:var(--red);font-size:13px;text-align:center;padding:20px;">连接失败</div>';
+  }
+  document.getElementById('localUrl').textContent = `http://${window.location.hostname}:8765`;
+}
+
+function renderSources() {
+  document.getElementById('sourceList').innerHTML = sources.map(s => `
+    <label class="source-item">
+      <input type="checkbox" value="${s.key}" checked>
+      <span>${esc(s.name)}</span>
+      <span class="tag">${s.type}</span>
+    </label>
+  `).join('');
+}
+
+function getSelectedSources() {
+  const checks = document.querySelectorAll('#sourceList input[type=checkbox]:checked');
+  return Array.from(checks).map(c => c.value);
+}
+
+async function doFetch() {
+  if (activeFetch) return;
+  activeFetch = true;
+  const btn = document.getElementById('btnFetch');
+  btn.disabled = true;
+  btn.textContent = '⏳ 采集ing...';
+  document.getElementById('loading').classList.add('active');
+  document.getElementById('articlesContainer').innerHTML = '';
+
+  const selected = getSelectedSources();
+  const param = selected.length < sources.length ? selected.join(',') : '';
+
+  try {
+    const res = await fetch(`/api/fetch?count=15&sources=${encodeURIComponent(param)}`);
+    const data = await res.json();
+    lastResult = data;
+    renderStats(data);
+    renderArticles(data.articles);
+    document.getElementById('btnSave').disabled = false;
+    document.getElementById('resultInfo').textContent =
+      `Top ${data.articles.length} / ${data.total} 篇 · ${data.stats ? Object.keys(data.stats).length : 0} 个信源`;
+  } catch(e) {
+    document.getElementById('articlesContainer').innerHTML =
+      `<div class="empty"><div class="icon">❌</div><div>抓取失败: ${esc(e.message)}</div></div>`;
+  } finally {
+    document.getElementById('loading').classList.remove('active');
+    btn.disabled = false;
+    btn.textContent = '⚡ 抓取新闻';
+    activeFetch = false;
+  }
+}
+
+function renderStats(data) {
+  const cards = document.querySelectorAll('#statsBar .stat-card');
+  cards[0].querySelector('.num').textContent = data.total || '—';
+  cards[1].querySelector('.num').textContent = data.deep_count || '—';
+  cards[2].querySelector('.num').textContent = data.medium_count || '—';
+  cards[3].querySelector('.num').textContent = data.stats ? Object.keys(data.stats).length : '—';
+  document.getElementById('statTime').style.display = 'block';
+  document.getElementById('statTime').querySelector('.num').textContent =
+    new Date(data.timestamp).toLocaleTimeString('zh-CN');
+}
+
+function renderArticles(articles) {
+  if (!articles || !articles.length) {
+    document.getElementById('articlesContainer').innerHTML =
+      '<div class="empty"><div class="icon">📭</div><div>本次未采集到文章</div></div>';
+    return;
+  }
+  document.getElementById('articlesContainer').innerHTML = articles.map(a => {
+    let cls, txt;
+    if (a.level === '深度') { cls = 'level-deep'; txt = '🔬 深度'; }
+    else if (a.level === '中度') { cls = 'level-mid'; txt = '📖 中度'; }
+    else { cls = 'level-shallow'; txt = '📄 浅层'; }
+    const u = a.url || '';
+    return `<div class="article-card">
+      <span class="level ${cls}">${txt} · ${a.score.toFixed(1)}分</span>
+      ${u ? `<a href="${esc(u)}" target="_blank" class="title">${esc(a.title)}</a>`
+         : `<span class="title">${esc(a.title)}</span>`}
+      <div class="meta"><span>📡 ${esc(a.source)}</span>${u ? `<span>🔗 <a href="${esc(u)}" target="_blank" style="color:var(--sub)">原文</a></span>` : ''}</div>
+      <div class="summary">${esc(a.summary || '')}</div>
+      <div class="actions">
+        ${u ? `<button class="btn btn-secondary" style="font-size:12px;padding:5px 12px" onclick="doDeepRead('${esc(u)}','${esc(a.source)}')">🔬 深度阅读</button>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function doDeepRead(url, source) {
+  const overlay = document.getElementById('modalOverlay');
+  const inner = document.getElementById('modalInner');
+  overlay.classList.add('active');
+  inner.innerHTML = `<div style="text-align:center;padding:40px;color:var(--sub)"><div class="spinner"></div><div>正在抓取全文并深度解读...</div><div style="font-size:12px;margin-top:8px;color:var(--sub)">URL: ${esc(url)}</div></div>`;
+
+  try {
+    const res = await fetch(`/api/deep-read?url=${encodeURIComponent(url)}&source=${encodeURIComponent(source)}`);
+    const data = await res.json();
+
+    if (data.status === 'fallback') {
+      inner.innerHTML = `<h2>⚠️ 无法获取全文</h2><p style="color:var(--sub)">${esc(data.message)}</p><p style="margin-top:12px"><a href="${esc(url)}" target="_blank" style="color:var(--accent)">🔗 直接访问原文 →</a></p>`;
+      return;
+    }
+    if (data.status === 'low_quality') {
+      inner.innerHTML = `
+        <h2>⚠️ 内容质量不合格</h2>
+        <div class="warn-box">
+          <p style="color:var(--yellow);margin-bottom:8px">${esc(data.message)}</p>
+          <p style="color:var(--sub);font-size:13px">常见原因：网站 DOM 结构改版，正则抓取失效。已触发质量过滤器，屏蔽了噪声内容。</p>
+        </div>
+        <p style="margin-top:12px"><a href="${esc(data.url || url)}" target="_blank" class="btn btn-primary" style="text-decoration:none">🔗 直接访问原文 →</a></p>`;
+      return;
+    }
+
+    let html = `<h2>🔬 深度解读</h2>`;
+    if (data.quality_score) {
+      const stars = '⭐'.repeat(Math.min(5, Math.max(1, Math.round(data.quality_score / 2))));
+      html += `<div class="section"><span style="font-size:14px;color:var(--sub)">质量评分: </span><span style="font-size:18px">${stars}</span> <span style="color:var(--sub)">${data.quality_score}/10</span></div>`;
+    }
+    if (data.category) html += `<div class="section"><span style="color:var(--accent2)">📂 主题分类</span><p>${esc(data.category)}</p></div>`;
+    if (data.thesis) html += `<div class="section"><h3>💡 核心论点</h3><p>${esc(data.thesis)}</p></div>`;
+    if (data.frameworks && data.frameworks.length) html += `<div class="section"><h3>🧩 关键框架</h3><ul>${data.frameworks.map(f => `<li>${esc(f)}</li>`).join('')}</ul></div>`;
+    if (data.insights && data.insights.length) html += `<div class="section"><h3>🔑 洞察要点</h3><ul>${data.insights.map(i => `<li>${esc(i)}</li>`).join('')}</ul></div>`;
+    if (data.data_points && data.data_points.length) html += `<div class="section"><h3>📈 数据看点</h3><ul>${data.data_points.map(d => `<li>${esc(d)}</li>`).join('')}</ul></div>`;
+    if (data.takeaways && data.takeaways.length) html += `<div class="section"><h3>🎯 行动启发</h3><ul>${data.takeaways.map(t => `<li>${esc(t)}</li>`).join('')}</ul></div>`;
+    if (data.full_text) html += `<div class="section"><h3>📄 原文精要 (${data.full_text_length} 字符)</h3><p style="max-height:300px;overflow-y:auto;white-space:pre-wrap;font-size:13px;color:var(--sub)">${esc(data.full_text)}</p></div>`;
+    html += `<div style="margin-top:16px"><a href="${esc(url)}" target="_blank" class="btn btn-primary" style="text-decoration:none">🔗 阅读原文</a></div>`;
+    inner.innerHTML = html;
+  } catch(e) {
+    inner.innerHTML = `<h2>❌ 深度阅读失败</h2><p>${esc(e.message)}</p>`;
+  }
+}
+
+function closeModal(e) {
+  if (e && e.target !== document.getElementById('modalOverlay')) return;
+  document.getElementById('modalOverlay').classList.remove('active');
+}
+
+async function doSave() {
+  if (!lastResult || !lastResult.articles || !lastResult.articles.length) {
+    showToast('没有可保存的内容');
+    return;
+  }
+  const today = new Date().toISOString().split('T')[0];
+  let md = `# AI日报 · ${today}\n\n> 自动生成于 knowledge-scout V3 + MCP Server\n> 采集 ${lastResult.total} 篇 · 深度 ${lastResult.deep_count} 篇 · 中度 ${lastResult.medium_count} 篇\n\n## 📰 头条\n\n`;
+  const top = lastResult.articles[0];
+  if (top) md += `### ${top.title}\n\n**来源**: ${top.source} | **评分**: ${top.score.toFixed(1)}\n\n${top.summary || ''}\n\n[原文链接](${top.url || '#'})\n\n`;
+  md += `## 🔬 深度解读\n\n`;
+  lastResult.articles.filter(a => a.level === '深度').forEach(a => md += `- [${a.score.toFixed(1)}分] ${a.title} — _${a.source}_\n`);
+  md += `\n## ⚡ 行业速览\n\n`;
+  lastResult.articles.filter(a => a.level !== '深度').forEach(a => md += `- ${a.title} [${a.source}]\n`);
+
+  try {
+    const res = await fetch('/api/save-obsidian', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({content: md, filename: `daily-report-${today}.md`})
+    });
+    const data = await res.json();
+    showToast(data.status === 'success' ? '✅ 已保存到 Obsidian 知识库' : `⚠️ 已保存到: ${data.path}`);
+  } catch(e) {
+    showToast('保存失败: ' + e.message);
+  }
+}
+
+function esc(s) {
+  if (!s || typeof s !== 'string') return '';
+  const div = document.createElement('div');
+  div.textContent = s;
+  return div.innerHTML;
+}
+
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 2500);
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+init();
+</script>
+</body>
+</html>

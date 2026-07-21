@@ -1,0 +1,44 @@
+"""机器之心 — RSS AI行业新闻"""
+
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+import aiohttp
+from utils.rss_fetcher import fetch_rss
+from utils.interest_filter import classify_article
+from .base import BaseExtractor, Article
+
+
+class JiqizhixinExtractor(BaseExtractor):
+    FEED_URL = "https://www.jiqizhixin.com/rss"
+
+    async def fetch(self) -> list[Article]:
+        articles = []
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+            "Accept": "application/rss+xml, application/xml, text/xml, */*",
+        }
+        async with aiohttp.ClientSession(headers=headers) as session:
+            items = await fetch_rss(session, self.FEED_URL)
+            if not items:
+                return articles
+
+            for item in items[:30]:
+                title = item["title"]
+                summary = item["summary"]
+                category, score = classify_article(title, summary)
+                if score < 2.0:
+                    continue
+
+                articles.append(Article(
+                    platform="jiqizhixin",
+                    title=title,
+                    url=item["url"],
+                    summary=summary[:200],
+                    author=item["author"],
+                    published=item["published"],
+                    category=category,
+                    raw_score=score,
+                    metadata={"source": "机器之心"},
+                ))
+        return articles

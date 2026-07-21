@@ -1,0 +1,23 @@
+# Render Blueprint (render.yaml)
+# 部署到 Render.com 的配置文件
+# 使用方法：将整个 ai-daily-mcp 文件夹上传到 GitHub，然后在 Render 中创建 Blueprint 即可
+
+services:
+  - type: web
+    name: ai-daily-mcp
+    env: python
+    region: singapore  # 新加坡节点，国内访问较快
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python web_demo_cloud.py
+    envVars:
+      - key: LLM_BASE_URL
+        value: https://api.deepseek.com/v1
+      - key: LLM_MODEL
+        value: deepseek-chat
+      - key: LLM_API_KEY
+        sync: false  # 手动填入，不从代码同步
+      - key: LLM_TIMEOUT
+        value: "60"
+      - key: PYTHON_VERSION
+        value: "3.12.0"
