@@ -1,1 +1,43 @@
-IiIiMzbmsKog4oCUIFJTUyDnp5HmioDllYbkuJrmlrDpl7siIiIKCmltcG9ydCBzeXMKZnJvbSBwYXRobGliIGltcG9ydCBQYXRoCnN5cy5wYXRoLmluc2VydCgwLCBzdHIoUGF0aChfX2ZpbGVfXykucmVzb2x2ZSgpLnBhcmVudC5wYXJlbnQpKQppbXBvcnQgYWlvaHR0cApmcm9tIHV0aWxzLnJzc19mZXRjaGVyIGltcG9ydCBmZXRjaF9yc3MKZnJvbSB1dGlscy5pbnRlcmVzdF9maWx0ZXIgaW1wb3J0IGNsYXNzaWZ5X2FydGljbGUKZnJvbSAuYmFzZSBpbXBvcnQgQmFzZUV4dHJhY3RvciwgQXJ0aWNsZQoKCmNsYXNzIEtyMzZFeHRyYWN0b3IoQmFzZUV4dHJhY3Rvcik6CiAgICBGRUVEX1VSTCA9ICJodHRwczovLzM2a3IuY29tL2ZlZWQiCgogICAgYXN5bmMgZGVmIGZldGNoKHNlbGYpIC0+IGxpc3RbQXJ0aWNsZV06CiAgICAgICAgYXJ0aWNsZXMgPSBbXQogICAgICAgIGhlYWRlcnMgPSB7CiAgICAgICAgICAgICJVc2VyLUFnZW50IjogIk1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiIKICAgICAgICB9CiAgICAgICAgYXN5bmMgd2l0aCBhaW9odHRwLkNsaWVudFNlc3Npb24oaGVhZGVycz1oZWFkZXJzKSBhcyBzZXNzaW9uOgogICAgICAgICAgICBpdGVtcyA9IGF3YWl0IGZldGNoX3JzcyhzZXNzaW9uLCBzZWxmLkZFRURfVVJMKQogICAgICAgICAgICBpZiBub3QgaXRlbXM6CiAgICAgICAgICAgICAgICByZXR1cm4gYXJ0aWNsZXMKCiAgICAgICAgICAgIGZvciBpdGVtIGluIGl0ZW1zWzo1MF06CiAgICAgICAgICAgICAgICB0aXRsZSA9IGl0ZW1bInRpdGxlIl0KICAgICAgICAgICAgICAgIHN1bW1hcnkgPSBpdGVtWyJzdW1tYXJ5Il0KICAgICAgICAgICAgICAgIGNhdGVnb3J5LCBzY29yZSA9IGNsYXNzaWZ5X2FydGljbGUodGl0bGUsIHN1bW1hcnkpCiAgICAgICAgICAgICAgICBpZiBzY29yZSA8IDIuMDoKICAgICAgICAgICAgICAgICAgICBjb250aW51ZQoKICAgICAgICAgICAgICAgIGFydGljbGVzLmFwcGVuZChBcnRpY2xlKAogICAgICAgICAgICAgICAgICAgIHBsYXRmb3JtPSIzNmtyIiwKICAgICAgICAgICAgICAgICAgICB0aXRsZT10aXRsZSwKICAgICAgICAgICAgICAgICAgICB1cmw9aXRlbVsidXJsIl0sCiAgICAgICAgICAgICAgICAgICAgc3VtbWFyeT1zdW1tYXJ5WzoyMDBdLAogICAgICAgICAgICAgICAgICAgIGF1dGhvcj1pdGVtWyJhdXRob3IiXSwKICAgICAgICAgICAgICAgICAgICBwdWJsaXNoZWQ9aXRlbVsicHVibGlzaGVkIl0sCiAgICAgICAgICAgICAgICAgICAgY2F0ZWdvcnk9Y2F0ZWdvcnksCiAgICAgICAgICAgICAgICAgICAgcmF3X3Njb3JlPXNjb3JlLAogICAgICAgICAgICAgICAgICAgIG1ldGFkYXRhPXsic291cmNlIjogIjM25rCqIn0sCiAgICAgICAgICAgICAgICApKQogICAgICAgIHJldHVybiBhcnRpY2xlcwo=
+"""36姘?鈥?RSS 绉戞妧鍟嗕笟鏂伴椈"""
+
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+import httpx
+from utils.rss_fetcher import fetch_rss
+from utils.interest_filter import classify_article
+from .base import BaseExtractor, Article
+
+
+class Kr36Extractor(BaseExtractor):
+    FEED_URL = "https://36kr.com/feed"
+
+    async def fetch(self) -> list[Article]:
+        articles = []
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        }
+        async with httpx.AsyncClient(headers=headers) as session:
+            items = await fetch_rss(session, self.FEED_URL)
+            if not items:
+                return articles
+
+            for item in items[:50]:
+                title = item["title"]
+                summary = item["summary"]
+                category, score = classify_article(title, summary)
+                if score < 2.0:
+                    continue
+
+                articles.append(Article(
+                    platform="36kr",
+                    title=title,
+                    url=item["url"],
+                    summary=summary[:200],
+                    author=item["author"],
+                    published=item["published"],
+                    category=category,
+                    raw_score=score,
+                    metadata={"source": "36姘?},
+                ))
+        return articles
