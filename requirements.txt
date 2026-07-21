@@ -1,1 +1,9 @@
-IyBBSeaXpeaKpSBNQ1AgU2VydmVyIC0g5L6d6LWWCmZhc3RhcGk+PTAuMTAwLjAKdXZpY29ybj49MC4yMy4wCmh0dHB4Pj0wLjI3LjAKYWlvaHR0cD49My44LjAKbWNwPj0xLjAuMAp0cmFmaWxhdHVyYT49Mi4wLjAKZmVlZHBhcnNlcj49Ni4wLjAK
+# AI鏃ユ姤 MCP Server - 渚濊禆 (浜戦儴缃茬増)
+# 鍥哄畾鐗堟湰鍙烽伩鍏?Render 鐜鍏煎鎬ч棶棰?
+fastapi==0.115.6
+uvicorn==0.34.0
+httpx==0.28.1
+aiohttp==3.11.11
+trafilatura==2.0.0
+lxml==5.3.0
+feedparser==6.0.11
