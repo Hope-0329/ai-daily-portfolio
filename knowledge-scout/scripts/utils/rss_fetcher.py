@@ -1,1 +1,75 @@
-IiIiUlNTIOmAmueUqOaKk+WPliArIOino+aekOW3peWFtyIiIgppbXBvcnQgYWlvaHR0cAppbXBvcnQgeG1sLmV0cmVlLkVsZW1lbnRUcmVlIGFzIEVUCmZyb20gdHlwaW5nIGltcG9ydCBPcHRpb25hbAoKRkVFRF9USU1FT1VUID0gMTUKCgphc3luYyBkZWYgZmV0Y2hfcnNzKHNlc3Npb246IGFpb2h0dHAuQ2xpZW50U2Vzc2lvbiwgdXJsOiBzdHIpIC0+IE9wdGlvbmFsW2xpc3RbZGljdF1dOgogICAgIiIi5oqT5Y+WIFJTUyBmZWVk77yM6L+U5Zue5p2h55uu5YiX6KGoIiIiCiAgICB0cnk6CiAgICAgICAgYXN5bmMgd2l0aCBzZXNzaW9uLmdldCh1cmwsIHRpbWVvdXQ9RkVFRF9USU1FT1VULCBzc2w9RmFsc2UpIGFzIHJlc3A6CiAgICAgICAgICAgIGlmIHJlc3Auc3RhdHVzICE9IDIwMDoKICAgICAgICAgICAgICAgIHJldHVybiBOb25lCiAgICAgICAgICAgIHhtbF90ZXh0ID0gYXdhaXQgcmVzcC50ZXh0KCkKICAgIGV4Y2VwdCBFeGNlcHRpb246CiAgICAgICAgcmV0dXJuIE5vbmUKCiAgICB0cnk6CiAgICAgICAgcm9vdCA9IEVULmZyb21zdHJpbmcoeG1sX3RleHQpCiAgICBleGNlcHQgRVQuUGFyc2VFcnJvcjoKICAgICAgICByZXR1cm4gTm9uZQoKICAgIGl0ZW1zID0gW10KICAgICMg5YW85a65IFJTUyAyLjAg5ZKMIEF0b20KICAgIG5zID0geyJhdG9tIjogImh0dHA6Ly93d3cudzMub3JnLzIwMDUvQXRvbSJ9CiAgICBmb3IgZW50cnkgaW4gcm9vdC5pdGVyKCJpdGVtIik6CiAgICAgICAgaXRlbXMuYXBwZW5kKF9wYXJzZV9yc3NfaXRlbShlbnRyeSkpCiAgICBmb3IgZW50cnkgaW4gcm9vdC5maW5kYWxsKCJhdG9tOmVudHJ5IiwgbnMpOgogICAgICAgIGl0ZW1zLmFwcGVuZChfcGFyc2VfYXRvbV9pdGVtKGVudHJ5LCBucykpCiAgICByZXR1cm4gaXRlbXMgaWYgaXRlbXMgZWxzZSBOb25lCgoKZGVmIF9wYXJzZV9yc3NfaXRlbShpdGVtKSAtPiBkaWN0OgogICAgcmV0dXJuIHsKICAgICAgICAidGl0bGUiOiAoaXRlbS5maW5kdGV4dCgidGl0bGUiKSBvciAiIikuc3RyaXAoKSwKICAgICAgICAidXJsIjogKGl0ZW0uZmluZHRleHQoImxpbmsiKSBvciAiIikuc3RyaXAoKSwKICAgICAgICAic3VtbWFyeSI6IF9zdHJpcF9odG1sKChpdGVtLmZpbmR0ZXh0KCJkZXNjcmlwdGlvbiIpIG9yICIiKS5zdHJpcCgpKSwKICAgICAgICAiYXV0aG9yIjogKGl0ZW0uZmluZHRleHQoImF1dGhvciIpIG9yICIiKS5zdHJpcCgpLAogICAgICAgICJwdWJsaXNoZWQiOiAoaXRlbS5maW5kdGV4dCgicHViRGF0ZSIpIG9yICIiKS5zdHJpcCgpLAogICAgfQoKCmRlZiBfcGFyc2VfYXRvbV9pdGVtKGVudHJ5LCBucykgLT4gZGljdDoKICAgIHRpdGxlID0gZW50cnkuZmluZHRleHQoImF0b206dGl0bGUiLCAiIiwgbnMpLnN0cmlwKCkKICAgIHVybCA9ICIiCiAgICBmb3IgbGluayBpbiBlbnRyeS5maW5kYWxsKCJhdG9tOmxpbmsiLCBucyk6CiAgICAgICAgaHJlZiA9IGxpbmsuZ2V0KCJocmVmIiwgIiIpCiAgICAgICAgaWYgaHJlZjoKICAgICAgICAgICAgdXJsID0gaHJlZgogICAgICAgICAgICBicmVhawogICAgc3VtbWFyeSA9IGVudHJ5LmZpbmR0ZXh0KCJhdG9tOnN1bW1hcnkiLCAiIiwgbnMpLnN0cmlwKCkKICAgIGF1dGhvcl9lbGVtID0gZW50cnkuZmluZCgiYXRvbTphdXRob3IiLCBucykKICAgIGF1dGhvciA9ICIiCiAgICBpZiBhdXRob3JfZWxlbSBpcyBub3QgTm9uZToKICAgICAgICBhdXRob3IgPSAoYXV0aG9yX2VsZW0uZmluZHRleHQoImF0b206bmFtZSIsICIiLCBucykgb3IgIiIpLnN0cmlwKCkKICAgIHB1Ymxpc2hlZCA9IChlbnRyeS5maW5kdGV4dCgiYXRvbTpwdWJsaXNoZWQiLCAiIiwgbnMpIG9yCiAgICAgICAgICAgICAgICAgZW50cnkuZmluZHRleHQoImF0b206dXBkYXRlZCIsICIiLCBucykgb3IgIiIpLnN0cmlwKCkKICAgIHJldHVybiB7CiAgICAgICAgInRpdGxlIjogdGl0bGUsCiAgICAgICAgInVybCI6IHVybCwKICAgICAgICAic3VtbWFyeSI6IF9zdHJpcF9odG1sKHN1bW1hcnkpLAogICAgICAgICJhdXRob3IiOiBhdXRob3IsCiAgICAgICAgInB1Ymxpc2hlZCI6IHB1Ymxpc2hlZCwKICAgIH0KCgpkZWYgX3N0cmlwX2h0bWwodGV4dDogc3RyKSAtPiBzdHI6CiAgICAiIiLmuIXnkIYgSFRNTCDmoIfnrb4iIiIKICAgIGltcG9ydCByZQogICAgdGV4dCA9IHJlLnN1YihyIjxbXj5dKz4iLCAiIiwgdGV4dCkKICAgIHRleHQgPSB0ZXh0LnJlcGxhY2UoIiZuYnNwOyIsICIgIikucmVwbGFjZSgiJmFtcDsiLCAiJiIpCiAgICB0ZXh0ID0gdGV4dC5yZXBsYWNlKCImbHQ7IiwgIjwiKS5yZXBsYWNlKCImZ3Q7IiwgIj4iKQogICAgdGV4dCA9IHRleHQucmVwbGFjZSgiJnF1b3Q7IiwgJyInKS5yZXBsYWNlKCImIzM5OyIsICInIikKICAgIHJldHVybiAiICIuam9pbih0ZXh0LnNwbGl0KCkpWzo1MDBdCg==
+"""RSS 閫氱敤鎶撳彇 + 瑙ｆ瀽宸ュ叿"""
+import httpx
+import xml.etree.ElementTree as ET
+from typing import Optional
+
+FEED_TIMEOUT = 15
+
+
+async def fetch_rss(session: 'httpx.AsyncClient', url: str) -> Optional[list[dict]]:
+    """鎶撳彇 RSS feed锛岃繑鍥炴潯鐩垪琛?""
+    try:
+        resp = await session.get(url, timeout=FEED_TIMEOUT)
+        if resp.status_code != 200:
+            return None
+        xml_text = resp.text
+    except Exception:
+        return None
+
+    try:
+        root = ET.fromstring(xml_text)
+    except ET.ParseError:
+        return None
+
+    items = []
+    # 鍏煎 RSS 2.0 鍜?Atom
+    ns = {"atom": "http://www.w3.org/2005/Atom"}
+    for entry in root.iter("item"):
+        items.append(_parse_rss_item(entry))
+    for entry in root.findall("atom:entry", ns):
+        items.append(_parse_atom_item(entry, ns))
+    return items if items else None
+
+
+def _parse_rss_item(item) -> dict:
+    return {
+        "title": (item.findtext("title") or "").strip(),
+        "url": (item.findtext("link") or "").strip(),
+        "summary": _strip_html((item.findtext("description") or "").strip()),
+        "author": (item.findtext("author") or "").strip(),
+        "published": (item.findtext("pubDate") or "").strip(),
+    }
+
+
+def _parse_atom_item(entry, ns) -> dict:
+    title = entry.findtext("atom:title", "", ns).strip()
+    url = ""
+    for link in entry.findall("atom:link", ns):
+        href = link.get("href", "")
+        if href:
+            url = href
+            break
+    summary = entry.findtext("atom:summary", "", ns).strip()
+    author_elem = entry.find("atom:author", ns)
+    author = ""
+    if author_elem is not None:
+        author = (author_elem.findtext("atom:name", "", ns) or "").strip()
+    published = (entry.findtext("atom:published", "", ns) or
+                 entry.findtext("atom:updated", "", ns) or "").strip()
+    return {
+        "title": title,
+        "url": url,
+        "summary": _strip_html(summary),
+        "author": author,
+        "published": published,
+    }
+
+
+def _strip_html(text: str) -> str:
+    """娓呯悊 HTML 鏍囩"""
+    import re
+    text = re.sub(r"<[^>]+>", "", text)
+    text = text.replace("&nbsp;", " ").replace("&amp;", "&")
+    text = text.replace("&lt;", "<").replace("&gt;", ">")
+    text = text.replace("&quot;", '"').replace("&#39;", "'")
+    return " ".join(text.split())[:500]
