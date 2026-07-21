@@ -1,1 +1,276 @@
-IiIiCkFJ5pel5oqlIE1DUCBTZXJ2ZXIg4oCUIOS6kemDqOe9sueJiCAoUmVuZGVyL1JhaWx3YXkvRmx5LmlvKQrkvb/nlKjnjq/looPlj5jph4/phY3nva4gTExNIFByb3ZpZGVy77yM5LiN5L6d6LWW5pys5ZywIFFDbGF3IOe9keWFs+OAggoK546v5aKD5Y+Y6YePOgogIExMTV9CQVNFX1VSTCAgIC0gTExNIEFQSSDlnLDlnYAgKE9wZW5BSSDlhbzlrrkpCiAgTExNX0FQSV9LRVkgICAgLSBBUEkg5a+G6ZKlCiAgTExNX01PREVMICAgICAgLSDmqKHlnovlkI0gKOm7mOiupCBkZWVwc2Vlay1jaGF0KQogIFBPUlQgICAgICAgICAgIC0g5pyN5Yqh56uv5Y+jICjpu5jorqQgODc2NSkKICBPQlNJRElBTl9QQVRIICAtIE9ic2lkaWFuIOWtmOWCqOi3r+W+hCAo6buY6K6k5pys5ZywKQoK5b+r6YCf6YOo572y5YiwIFJlbmRlcjoKICAxLiDkuIrkvKDliLAgR2l0SHViCiAgMi4gUmVuZGVyIOKGkiBOZXcgV2ViIFNlcnZpY2Ug4oaSIOmAiei/meS4qiByZXBvCiAgMy4g6K6+572u5Lul5LiK546v5aKD5Y+Y6YePCiAgNC4gU3RhcnQgQ29tbWFuZDogcHl0aG9uIHdlYl9kZW1vX2Nsb3VkLnB5CiIiIgoKaW1wb3J0IG9zCmltcG9ydCByZQppbXBvcnQgc3lzCmZyb20gZGF0ZXRpbWUgaW1wb3J0IGRhdGV0aW1lCmZyb20gcGF0aGxpYiBpbXBvcnQgUGF0aAoKIyDilIDilIAg5re75YqgIGtub3dsZWRnZS1zY291dCDliLDot6/lvoTvvIjkvJjlhYjmn6Xmib7lkIznuqfnm67lvZXkuIvnmoQga25vd2xlZGdlLXNjb3V077yJ4pSA4pSAClNDT1VUX1JPT1QgPSBQYXRoKF9fZmlsZV9fKS5yZXNvbHZlKCkucGFyZW50IC8gImtub3dsZWRnZS1zY291dCIKaWYgU0NPVVRfUk9PVC5leGlzdHMoKToKICAgIHN5cy5wYXRoLmluc2VydCgwLCBzdHIoU0NPVVRfUk9PVCkpCmVsc2U6CiAgICAjIOacrOWcsDogYWktZGFpbHktbWNwIOWSjCBrbm93bGVkZ2Utc2NvdXQg5piv5YWE5byf55uu5b2VCiAgICBTQ09VVF9ST09UID0gUGF0aChfX2ZpbGVfXykucmVzb2x2ZSgpLnBhcmVudC5wYXJlbnQgLyAia25vd2xlZGdlLXNjb3V0IgogICAgaWYgU0NPVVRfUk9PVC5leGlzdHMoKToKICAgICAgICBzeXMucGF0aC5pbnNlcnQoMCwgc3RyKFNDT1VUX1JPT1QpKQoKZnJvbSBmYXN0YXBpIGltcG9ydCBGYXN0QVBJLCBRdWVyeQpmcm9tIGZhc3RhcGkucmVzcG9uc2VzIGltcG9ydCBIVE1MUmVzcG9uc2UsIEpTT05SZXNwb25zZQpmcm9tIGZhc3RhcGkubWlkZGxld2FyZS5jb3JzIGltcG9ydCBDT1JTTWlkZGxld2FyZQppbXBvcnQgdXZpY29ybgppbXBvcnQgaHR0cHgKCmFwcCA9IEZhc3RBUEkodGl0bGU9IkFJ5pel5oqlIE1DUCBTZXJ2ZXIiLCB2ZXJzaW9uPSIzLjAuMCIpCgphcHAuYWRkX21pZGRsZXdhcmUoCiAgICBDT1JTTWlkZGxld2FyZSwKICAgIGFsbG93X29yaWdpbnM9WyIqIl0sCiAgICBhbGxvd19tZXRob2RzPVsiKiJdLAogICAgYWxsb3dfaGVhZGVycz1bIioiXSwKKQoKIyDilIDilIAgTExNIENvbmZpZyAo5LuO546v5aKD5Y+Y6YeP6K+75Y+W77yM5YW85a655aSa5LiqIFByb3ZpZGVyKSDilIDilIAKTExNX0JBU0VfVVJMID0gb3MuZ2V0ZW52KCJMTE1fQkFTRV9VUkwiLCAiaHR0cHM6Ly9hcGkuZGVlcHNlZWsuY29tL3YxIikKTExNX0FQSV9LRVkgPSBvcy5nZXRlbnYoIkxMTV9BUElfS0VZIiwgIiIpCkxMTV9NT0RFTCA9IG9zLmdldGVudigiTExNX01PREVMIiwgImRlZXBzZWVrLWNoYXQiKQpMTE1fVElNRU9VVCA9IGludChvcy5nZXRlbnYoIkxMTV9USU1FT1VUIiwgIjYwIikpClBPUlQgPSBpbnQob3MuZ2V0ZW52KCJQT1JUIiwgIjg3NjUiKSkKCiMg4pSA4pSAIOWKoOi9vSBmZXRjaGVyIOaooeWdlyDilIDilIAKIyDkupHpg6jnvbLml7YgdG9vbHMg5ZyoIGFpLWRhaWx5LW1jcCDkuIvvvIzmnKzlnLDml7bkuZ/lnKjlkIzkuIDkvY3nva4KVE9PTFNfRElSID0gUGF0aChfX2ZpbGVfXykucmVzb2x2ZSgpLnBhcmVudCAvICJ0b29scyIKaWYgc3RyKFRPT0xTX0RJUikgbm90IGluIHN5cy5wYXRoOgogICAgc3lzLnBhdGguaW5zZXJ0KDAsIHN0cihUT09MU19ESVIucGFyZW50KSkKCnRyeToKICAgIGZyb20gdG9vbHMuZmV0Y2hlciBpbXBvcnQgZmV0Y2hfYXJ0aWNsZXMsIGZldGNoX2Z1bGxfYXJ0aWNsZV9zYWZlLCBTT1VSQ0VfTkFNRVMKZXhjZXB0IEltcG9ydEVycm9yIGFzIGU6CiAgICBwcmludChmIldBUk5JTkc6IENhbm5vdCBpbXBvcnQgZmV0Y2hlcjoge2V9LCBTQ09VVF9ST09UPXtTQ09VVF9ST09UfSIpCiAgICBTT1VSQ0VfTkFNRVMgPSB7fQogICAgYXN5bmMgZGVmIGZldGNoX2FydGljbGVzKHNvdXJjZXM9Tm9uZSwgY291bnQ9MTUpOgogICAgICAgIHJldHVybiB7ImFydGljbGVzIjogW10sICJzdGF0cyI6IHt9LCAidG90YWwiOiAwLCAiZGVlcF9jb3VudCI6IDAsICJtZWRpdW1fY291bnQiOiAwfQogICAgYXN5bmMgZGVmIGZldGNoX2Z1bGxfYXJ0aWNsZV9zYWZlKHVybCwgc291cmNlKToKICAgICAgICByZXR1cm4gTm9uZQoKCiMg4pSA4pSAIExMTSDmt7Hluqbop6Por7sgKE1hcmtkb3duIOagvOW8jykg4pSA4pSACgpQUk9NUFRfVEVNUExBVEUgPSAiIiLkvaDmmK/kuIDkuKrkuJPkuJrnmoRBSeihjOS4muWIhuaekOW4iOOAguivt+WvueS7peS4i+aWh+eroOi/m+ihjOa3seW6puWIhuaekO+8jOaMieeFp+aMh+WumuagvOW8j+i+k+WHuuOAggoKIyMg5paH56ug5YaF5a65Cgp7Y29udGVudH0KCiMjIOi+k+WHuuagvOW8j++8iOS4peagvOaMieS7peS4i+e7k+aehO+8jOeUqOS4reaWh+WbnuetlO+8iQoK44CQ5qC45b+D6K6654K544CRCu+8iOWhq+WGmeS4gOWPpeivneaguOW/g+iuuueCue+8jDIwLTUw5a2X77yM5b+F6aG75piv6KeC54K55o+Q54K877yJCgrjgJDkuLvpopjliIbnsbvjgJEK77yI5LuO5Lul5LiL6YCJ5oup77yaQUkgQWdlbnTkuI7lt6XnqIvjgIFBSeWVhuS4muS4jui2i+WKv+OAgeS8geS4muaVsOWtl+WMlui9rOWei+OAgUFJ5Yib5L2c5LiO5YaF5a6544CB55+l6K+G566h55CG5LiO5pWI546H44CB5Lq65b2i5py65Zmo5Lq65LiO56Gs5Lu244CB6Leo6aKG5Z+f57u85ZCI77yJCgrjgJDlhbPplK7moYbmnrbjgJEK77yI5paH56ug5Lit5piO56Gu5o+Q5Ye655qE5pa55rOV6K66L+aooeWeiy/moYbmnrblkI3np7DvvIzmr4/ooYzkuIDkuKrvvIzmsqHmnInlsLHlhpkg5peg77yJCgrjgJDmtJ7lr5/opoHngrnjgJEKLSDvvIjliIbmnpDmgKfmtJ7lr58x77yM5Zue562UIuS4uuS7gOS5iCLvvIzkuI3opoHmkZjmioTljp/mlofvvIkKLSDvvIjliIbmnpDmgKfmtJ7lr58y77yJCgrjgJDmlbDmja7nnIvngrnjgJEKLSDvvIjlhbPplK7mlbDmja7vvIzmsqHmnInlsLHlhpkg5peg5YWz6ZSu5pWw5o2u77yJCgrjgJDooYzliqjlkK/lj5HjgJEKLSDvvIjlj6/miafooYzlu7rorq4x77yM5Zue562UIuaAjuS5iOWBmiLvvIzkuI7mtJ7lr5/opoHngrnlrozlhajkuI3lkIzvvIkKLSDvvIjlj6/miafooYzlu7rorq4y77yJCgojIyDop4TliJkKLSDmtJ7lr5/opoHngrnvvJrlm6DmnpzliIbmnpDjgIHotovlir/liKTmlq3jgIHog4zlkI7pgLvovpHvvIznu53lr7nkuI3og73nm7TmjqXmkZjmioTljp/mlocKLSDooYzliqjlkK/lj5HvvJrpnaLlkJHkuqflk4Hnu4/nkIYvQUnku47kuJrogIXnmoTlj6/miafooYzlu7rorq7vvIzkuI7mtJ7lr5/opoHngrnlhoXlrrnkuI3og73ph43lpI0KLSDmr4/mnb/lnZcyLTXmnaHvvIzlroHnvLrmr4vmu6UKLSDkuI3opoHnvJbpgKDmlofnq6DkuK3kuI3lrZjlnKjnmoTkv6Hmga8iIiIKCgpkZWYgX3BhcnNlX3NlY3Rpb24odGV4dDogc3RyLCB0YWc6IHN0cikgLT4gbGlzdFtzdHJdOgogICAgcGF0dGVybiA9IHJlLmVzY2FwZSh0YWcpICsgcidccypcbiguKj8pKD89XG5cdTMwMTB8XFopJwogICAgbWF0Y2ggPSByZS5zZWFyY2gocGF0dGVybiwgdGV4dCwgcmUuRE9UQUxMKQogICAgaWYgbm90IG1hdGNoOgogICAgICAgIHJldHVybiBbXQogICAgaXRlbXMgPSBbXQogICAgZm9yIGxpbmUgaW4gbWF0Y2guZ3JvdXAoMSkuc3RyaXAoKS5zcGxpdCgnXG4nKToKICAgICAgICBsaW5lID0gbGluZS5zdHJpcCgpCiAgICAgICAgaWYgbm90IGxpbmU6CiAgICAgICAgICAgIGNvbnRpbnVlCiAgICAgICAgbGluZSA9IHJlLnN1YihyJ15bLSrigKJdXHMqJywgJycsIGxpbmUpCiAgICAgICAgbGluZSA9IHJlLnN1YihyJ15cZCtbLuOAgV1ccyonLCAnJywgbGluZSkKICAgICAgICBpZiBsaW5lIGluICgn5pegJywgJ+aXoOWFs+mUruaVsOaNricsICfnlaUnLCAn77yI5peg77yJJywgJ+aaguaXoCcpOgogICAgICAgICAgICBjb250aW51ZQogICAgICAgIGlmIGxlbihsaW5lKSA+PSA2OgogICAgICAgICAgICBpdGVtcy5hcHBlbmQobGluZSkKICAgIHJldHVybiBpdGVtcwoKCmRlZiBfcGFyc2Vfc2luZ2xlKHRleHQ6IHN0ciwgdGFnOiBzdHIpIC0+IHN0cjoKICAgIGl0ZW1zID0gX3BhcnNlX3NlY3Rpb24odGV4dCwgdGFnKQogICAgcmV0dXJuIGl0ZW1zWzBdIGlmIGl0ZW1zIGVsc2UgIiIKCgphc3luYyBkZWYgbGxtX2RlZXBfcmVhZChjb250ZW50OiBzdHIsIHNvdXJjZTogc3RyID0gIiIsIHVybDogc3RyID0gIiIpIC0+IGRpY3Q6CiAgICAiIiLkvb/nlKggTExNIOa3seW6puino+ivu+aWh+eroCIiIgogICAgaWYgbGVuKGNvbnRlbnQpIDwgMTAwOgogICAgICAgIHJldHVybiBOb25lCgogICAgbWF4X2NoYXJzID0gODAwMAogICAgdGV4dCA9IGNvbnRlbnRbOm1heF9jaGFyc10KICAgIGlmIGxlbihjb250ZW50KSA+IG1heF9jaGFyczoKICAgICAgICB0ZXh0ICs9IGYiXG5cblvljp/mloflhbEge2xlbihjb250ZW50KX0g5a2X77yM5q2k5aSE5oiq5Y+W5YmNIHttYXhfY2hhcnN9IOWtl10iCgogICAgcHJvbXB0ID0gUFJPTVBUX1RFTVBMQVRFLmZvcm1hdChjb250ZW50PXRleHQpCgogICAgdHJ5OgogICAgICAgIGFzeW5jIHdpdGggaHR0cHguQXN5bmNDbGllbnQodGltZW91dD1MTE1fVElNRU9VVCkgYXMgY2xpZW50OgogICAgICAgICAgICByZXNwID0gYXdhaXQgY2xpZW50LnBvc3QoCiAgICAgICAgICAgICAgICBmIntMTE1fQkFTRV9VUkx9L2NoYXQvY29tcGxldGlvbnMiLAogICAgICAgICAgICAgICAgaGVhZGVycz17CiAgICAgICAgICAgICAgICAgICAgIkF1dGhvcml6YXRpb24iOiBmIkJlYXJlciB7TExNX0FQSV9LRVl9IiwKICAgICAgICAgICAgICAgICAgICAiQ29udGVudC1UeXBlIjogImFwcGxpY2F0aW9uL2pzb24iLAogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIGpzb249ewogICAgICAgICAgICAgICAgICAgICJtb2RlbCI6IExMTV9NT0RFTCwKICAgICAgICAgICAgICAgICAgICAibWVzc2FnZXMiOiBbCiAgICAgICAgICAgICAgICAgICAgICAgIHsicm9sZSI6ICJzeXN0ZW0iLCAiY29udGVudCI6ICLkvaDmmK/kuIDkuKrkuJPkuJrnmoRBSeihjOS4muWIhuaekOW4iOOAguS4peagvOaMieeFp+aMh+WumuagvOW8j+i+k+WHuuWIhuaekOe7k+aenOOAgiJ9LAogICAgICAgICAgICAgICAgICAgICAgICB7InJvbGUiOiAidXNlciIsICJjb250ZW50IjogcHJvbXB0fSwKICAgICAgICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgICAgICAgICJ0ZW1wZXJhdHVyZSI6IDAuMywKICAgICAgICAgICAgICAgICAgICAibWF4X3Rva2VucyI6IDIwMDAsCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICApCiAgICAgICAgICAgIGlmIHJlc3Auc3RhdHVzX2NvZGUgIT0gMjAwOgogICAgICAgICAgICAgICAgcHJpbnQoZiJMTE0gQVBJIGVycm9yOiB7cmVzcC5zdGF0dXNfY29kZX0ge3Jlc3AudGV4dFs6MjAwXX0iKQogICAgICAgICAgICAgICAgcmV0dXJuIE5vbmUKCiAgICAgICAgICAgIGRhdGEgPSByZXNwLmpzb24oKQogICAgICAgICAgICByYXcgPSBkYXRhWyJjaG9pY2VzIl1bMF1bIm1lc3NhZ2UiXVsiY29udGVudCJdCgogICAgICAgICAgICByZXR1cm4gewogICAgICAgICAgICAgICAgInRoZXNpcyI6IF9wYXJzZV9zaW5nbGUocmF3LCAi44CQ5qC45b+D6K6654K544CRIiksCiAgICAgICAgICAgICAgICAiY2F0ZWdvcnkiOiBfcGFyc2Vfc2luZ2xlKHJhdywgIuOAkOS4u+mimOWIhuexu+OAkSIpLAogICAgICAgICAgICAgICAgImZyYW1ld29ya3MiOiBfcGFyc2Vfc2VjdGlvbihyYXcsICLjgJDlhbPplK7moYbmnrbjgJEiKSwKICAgICAgICAgICAgICAgICJpbnNpZ2h0cyI6IF9wYXJzZV9zZWN0aW9uKHJhdywgIuOAkOa0nuWvn+imgeeCueOAkSIpLAogICAgICAgICAgICAgICAgImRhdGFfcG9pbnRzIjogX3BhcnNlX3NlY3Rpb24ocmF3LCAi44CQ5pWw5o2u55yL54K544CRIiksCiAgICAgICAgICAgICAgICAidGFrZWF3YXlzIjogX3BhcnNlX3NlY3Rpb24ocmF3LCAi44CQ6KGM5Yqo5ZCv5Y+R44CRIiksCiAgICAgICAgICAgIH0KICAgIGV4Y2VwdCBFeGNlcHRpb24gYXMgZToKICAgICAgICBwcmludChmIkxMTSBjYWxsIGZhaWxlZDoge2V9IikKICAgICAgICByZXR1cm4gTm9uZQoKCiMg4pSA4pSAIOWGheWuuei0qOmHj+ajgOa1iyDilIDilIAKCmRlZiBfY2hlY2tfY29udGVudF9xdWFsaXR5KHRleHQ6IHN0cikgLT4gZGljdDoKICAgIGlmIG5vdCB0ZXh0OgogICAgICAgIHJldHVybiB7Im5vaXNlX3JhdGlvIjogMS4wLCAid29yZF9jb3VudCI6IDB9CiAgICBsaW5lcyA9IHRleHQuc3BsaXQoIlxuIikKICAgIG5vaXNlX2xpbmVzID0gMAogICAgbm9pc2VfcGF0dGVybnMgPSBbCiAgICAgICAgciJeXHMqWy4jQF1cdytccypceyIsIHIiXlxzKihmdW5jdGlvbnxjb25zdHxsZXR8dmFyfGltcG9ydHxleHBvcnQpXHMiLAogICAgICAgIHIiXlxzKih3aW5kb3d8ZG9jdW1lbnR8Y29uc29sZSlcLiIsIHIiXlxzKlx7XHMqJCIsIHIiXlxzKlx9XHMqJCIsCiAgICAgICAgciJeXHMqXC9cLyIsIHIiXlxzKlwvXCp8XCpcLyIsIHIiXlxzKkBtZWRpYXxAaW1wb3J0fEBrZXlmcmFtZXMiLAogICAgICAgIHIiXlxzKjxcdytbXj5dKj4iLCByIl5ccyo7W147XXswLDV9JCIsIHIiXlxzKlwpXHMqJCIsCiAgICAgICAgciJeXHMqY2F0Y2h8dHJ5XGJ8ZmluYWxseVxiIiwgciJeXHMqXC50aGVufFwuY2F0Y2h8XC5maW5hbGx5IiwKICAgICAgICByIl5ccyphc3luY1xzK2Z1bmN0aW9uIiwgciJeXHMqdXNlU3RhdGV8dXNlRWZmZWN0fHVzZUNhbGxiYWNrfHVzZU1lbW8iLAogICAgXQogICAgZm9yIGxpbmUgaW4gbGluZXM6CiAgICAgICAgaWYgbm90IGxpbmUuc3RyaXAoKToKICAgICAgICAgICAgY29udGludWUKICAgICAgICBmb3IgcCBpbiBub2lzZV9wYXR0ZXJuczoKICAgICAgICAgICAgaWYgcmUuc2VhcmNoKHAsIGxpbmUuc3RyaXAoKSwgcmUuSUdOT1JFQ0FTRSk6CiAgICAgICAgICAgICAgICBub2lzZV9saW5lcyArPSAxCiAgICAgICAgICAgICAgICBicmVhawogICAgcmV0dXJuIHsKICAgICAgICAibm9pc2VfcmF0aW8iOiByb3VuZChub2lzZV9saW5lcyAvIG1heChsZW4obGluZXMpLCAxKSwgMiksCiAgICAgICAgIndvcmRfY291bnQiOiBsZW4ocmUuZmluZGFsbChyIltcdTRlMDAtXHU5ZmZmXSIsIHRleHQpKSwKICAgIH0KCgojIOKUgOKUgCBBUEkg4pSA4pSACgpAYXBwLmdldCgiL2FwaS9zb3VyY2VzIikKYXN5bmMgZGVmIGxpc3Rfc291cmNlcygpOgogICAgc291cmNlcyA9IFtdCiAgICBmb3Iga2V5LCBsYWJlbCBpbiBTT1VSQ0VfTkFNRVMuaXRlbXMoKToKICAgICAgICBzb3VyY2VzLmFwcGVuZCh7ImtleSI6IGtleSwgIm5hbWUiOiBsYWJlbCwgInR5cGUiOiAiUlNTIn0pCiAgICByZXR1cm4geyJzb3VyY2VzIjogc291cmNlcywgInRvdGFsIjogbGVuKHNvdXJjZXMpfQoKCkBhcHAuZ2V0KCIvYXBpL2ZldGNoIikKYXN5bmMgZGVmIGZldGNoX25ld3Moc291cmNlczogc3RyID0gUXVlcnkoTm9uZSksIGNvdW50OiBpbnQgPSBRdWVyeSgxNSkpOgogICAgc291cmNlX2xpc3QgPSBOb25lCiAgICBpZiBzb3VyY2VzOgogICAgICAgIHNvdXJjZV9saXN0ID0gW3Muc3RyaXAoKSBmb3IgcyBpbiBzb3VyY2VzLnNwbGl0KCIsIikgaWYgcy5zdHJpcCgpIGluIFNPVVJDRV9OQU1FU10KICAgIHJlc3VsdCA9IGF3YWl0IGZldGNoX2FydGljbGVzKHNvdXJjZXM9c291cmNlX2xpc3QsIGNvdW50PWNvdW50KQogICAgcmV0dXJuIHsKICAgICAgICAiYXJ0aWNsZXMiOiByZXN1bHRbImFydGljbGVzIl0sCiAgICAgICAgInN0YXRzIjogcmVzdWx0WyJzdGF0cyJdLAogICAgICAgICJ0b3RhbCI6IHJlc3VsdFsidG90YWwiXSwKICAgICAgICAiZGVlcF9jb3VudCI6IHJlc3VsdFsiZGVlcF9jb3VudCJdLAogICAgICAgICJtZWRpdW1fY291bnQiOiByZXN1bHRbIm1lZGl1bV9jb3VudCJdLAogICAgICAgICJ0aW1lc3RhbXAiOiBkYXRldGltZS5ub3coKS5pc29mb3JtYXQoKQogICAgfQoKCkBhcHAuZ2V0KCIvYXBpL2RlZXAtcmVhZCIpCmFzeW5jIGRlZiBkZWVwX3JlYWQodXJsOiBzdHIgPSBRdWVyeSguLi4pLCBzb3VyY2U6IHN0ciA9IFF1ZXJ5KCIiKSk6CiAgICAiIiLmt7HluqbpmIXor7vljZXnr4fmlofnq6DvvIhMTE0g6amx5Yqo77yJIiIiCiAgICBpZiBub3QgdXJsOgogICAgICAgIHJldHVybiBKU09OUmVzcG9uc2UoeyJlcnJvciI6ICLor7fmj5DkvpsgVVJMIn0sIHN0YXR1c19jb2RlPTQwMCkKCiAgICBpZiBub3QgTExNX0FQSV9LRVk6CiAgICAgICAgcmV0dXJuIHsKICAgICAgICAgICAgInN0YXR1cyI6ICJub19hcGlfa2V5IiwKICAgICAgICAgICAgIm1lc3NhZ2UiOiAiTExNIEFQSSBLZXkg5pyq6YWN572u44CC566h55CG5ZGY6ZyA6K6+572uIExMTV9BUElfS0VZIOeOr+Wig+WPmOmHj+OAgiIsCiAgICAgICAgICAgICJ1cmwiOiB1cmwKICAgICAgICB9CgogICAgZnVsbF90ZXh0ID0gYXdhaXQgZmV0Y2hfZnVsbF9hcnRpY2xlX3NhZmUodXJsLCBzb3VyY2UpCiAgICBpZiBub3QgZnVsbF90ZXh0IG9yIGxlbihmdWxsX3RleHQpIDwgMjAwOgogICAgICAgIHJldHVybiB7CiAgICAgICAgICAgICJzdGF0dXMiOiAiZmFsbGJhY2siLAogICAgICAgICAgICAibWVzc2FnZSI6ICLml6Dms5Xojrflj5blhajmlofvvIjlj43niKzmiJbku5jotLnlopnvvInvvIzor7fmiYvliqjpmIXor7vljp/mlociLAogICAgICAgICAgICAidXJsIjogdXJsCiAgICAgICAgfQoKICAgIHF1YWxpdHkgPSBfY2hlY2tfY29udGVudF9xdWFsaXR5KGZ1bGxfdGV4dCkKICAgIGlmIHF1YWxpdHlbIm5vaXNlX3JhdGlvIl0gPiAwLjMgb3IgcXVhbGl0eVsid29yZF9jb3VudCJdIDwgNTA6CiAgICAgICAgcmV0dXJuIHsKICAgICAgICAgICAgInN0YXR1cyI6ICJsb3dfcXVhbGl0eSIsCiAgICAgICAgICAgICJtZXNzYWdlIjogZiLlhoXlrrnotKjph4/ov4fkvY7vvIjlmarlo7Dmr5Qge3F1YWxpdHlbJ25vaXNlX3JhdGlvJ106LjAlfe+8ie+8jOivt+eCueWHu+WOn+aWh+mYheivuyIsCiAgICAgICAgICAgICJ1cmwiOiB1cmwKICAgICAgICB9CgogICAgcmVzdWx0ID0gYXdhaXQgbGxtX2RlZXBfcmVhZChmdWxsX3RleHQsIHNvdXJjZSwgdXJsKQogICAgaWYgbm90IHJlc3VsdDoKICAgICAgICByZXR1cm4geyJzdGF0dXMiOiAicGFydGlhbCIsICJmdWxsX3RleHQiOiBmdWxsX3RleHRbOjMwMDBdLCAibWVzc2FnZSI6ICJMTE0g6Kej6K+75aSx6LSl77yM6L+U5Zue5Y6f5paHIn0KCiAgICByZXR1cm4gewogICAgICAgICJzdGF0dXMiOiAic3VjY2VzcyIsCiAgICAgICAgImZ1bGxfdGV4dF9sZW5ndGgiOiBsZW4oZnVsbF90ZXh0KSwKICAgICAgICAqKnJlc3VsdAogICAgfQoKCkBhcHAuZ2V0KCIvYXBpL2hlYWx0aCIpCmFzeW5jIGRlZiBoZWFsdGgoKToKICAgIHJldHVybiB7CiAgICAgICAgInN0YXR1cyI6ICJvayIsCiAgICAgICAgImxsbV9jb25maWd1cmVkIjogYm9vbChMTE1fQVBJX0tFWSksCiAgICAgICAgIm1vZGVsIjogTExNX01PREVMLAogICAgICAgICJzb3VyY2VzIjogbGVuKFNPVVJDRV9OQU1FUyksCiAgICAgICAgInRpbWVzdGFtcCI6IGRhdGV0aW1lLm5vdygpLmlzb2Zvcm1hdCgpCiAgICB9CgoKQGFwcC5nZXQoIi8iLCByZXNwb25zZV9jbGFzcz1IVE1MUmVzcG9uc2UpCmFzeW5jIGRlZiBpbmRleCgpOgogICAgaHRtbF9wYXRoID0gUGF0aChfX2ZpbGVfXykucGFyZW50IC8gInN0YXRpYyIgLyAiaW5kZXguaHRtbCIKICAgIHJldHVybiBodG1sX3BhdGgucmVhZF90ZXh0KGVuY29kaW5nPSJ1dGYtOCIpCgoKaWYgX19uYW1lX18gPT0gIl9fbWFpbl9fIjoKICAgIGltcG9ydCBzb2NrZXQKICAgIGhvc3RuYW1lID0gc29ja2V0LmdldGhvc3RuYW1lKCkKICAgIGxvY2FsX2lwID0gc29ja2V0LmdldGhvc3RieW5hbWUoaG9zdG5hbWUpCiAgICBwcmludChmIlxueyc9Jyo2MH0iKQogICAgcHJpbnQoZiIgIEFJ5pel5oqlIE1DUCBTZXJ2ZXIgdjMuMCAo5LqR6YOo572y54mIKSIpCiAgICBwcmludChmIiAgTExNOiB7TExNX01PREVMfSBAIHtMTE1fQkFTRV9VUkx9IikKICAgIHByaW50KGYiICBLZXkgY29uZmlndXJlZDoge2Jvb2woTExNX0FQSV9LRVkpfSIpCiAgICBwcmludChmIiAgU291cmNlczoge2xlbihTT1VSQ0VfTkFNRVMpfSIpCiAgICBwcmludChmIiAg6K6/6ZeuOiBodHRwOi8ve2xvY2FsX2lwfTp7UE9SVH0iKQogICAgcHJpbnQoZiJ7Jz0nKjYwfVxuIikKICAgIHV2aWNvcm4ucnVuKGFwcCwgaG9zdD0iMC4wLjAuMCIsIHBvcnQ9UE9SVCwgbG9nX2xldmVsPSJpbmZvIikK
+"""
+AI鏃ユ姤 MCP Server 鈥?浜戦儴缃茬増 v3.1 (Render/Railway)
+绋冲仴鍚姩锛氭墍鏈夐噸鍨嬫ā鍧楀欢杩熷姞杞斤紝鍚姩鏃跺彧鍋氭渶灏忓鍏ャ€?
+鐜鍙橀噺:
+  LLM_BASE_URL   - LLM API 鍦板潃 (榛樿 DeepSeek)
+  LLM_API_KEY    - API 瀵嗛挜 (蹇呭～)
+  LLM_MODEL      - 妯″瀷鍚?(榛樿 deepseek-chat)
+  PORT           - 鏈嶅姟绔彛 (榛樿 8765锛孯ender 鑷姩娉ㄥ叆)
+"""
+
+import os
+import re
+import sys
+import traceback
+from datetime import datetime
+from pathlib import Path
+
+# 鈹€鈹€ 鍚姩璇婃柇 鈹€鈹€
+print(f"Python version: {sys.version}")
+print(f"Python executable: {sys.executable}")
+print(f"Workdir: {os.getcwd()}")
+print(f"Files in workdir: {os.listdir('.')[:20]}")
+
+# 鈹€鈹€ 閰嶇疆鐭ヨ瘑鎺㈤拡璺緞 鈹€鈹€
+SCOUT_ROOT = Path(__file__).resolve().parent / "knowledge-scout"
+if SCOUT_ROOT.exists():
+    sys.path.insert(0, str(SCOUT_ROOT))
+    print(f"SCOUT_ROOT found: {SCOUT_ROOT}")
+else:
+    SCOUT_ROOT = Path(__file__).resolve().parent.parent / "knowledge-scout"
+    if SCOUT_ROOT.exists():
+        sys.path.insert(0, str(SCOUT_ROOT))
+        print(f"SCOUT_ROOT found (parent): {SCOUT_ROOT}")
+    else:
+        print(f"WARNING: knowledge-scout not found at {SCOUT_ROOT}")
+
+TOOLS_DIR = Path(__file__).resolve().parent / "tools"
+if str(TOOLS_DIR) not in sys.path:
+    sys.path.insert(0, str(TOOLS_DIR.parent))
+
+# 鈹€鈹€ 鏈€灏忓鍏ワ紙FastAPI + uvicorn锛岀‘淇濇湇鍔″櫒鑷冲皯鑳藉惎鍔級 鈹€鈹€
+try:
+    from fastapi import FastAPI, Query
+    from fastapi.responses import HTMLResponse, JSONResponse
+    from fastapi.middleware.cors import CORSMiddleware
+    import uvicorn
+    import httpx
+    print("Core imports OK (fastapi, uvicorn, httpx)")
+except ImportError as e:
+    print(f"FATAL: Core import failed: {e}")
+    print(traceback.format_exc())
+    sys.exit(1)
+
+app = FastAPI(title="AI鏃ユ姤 MCP Server", version="3.1.0")
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+
+# 鈹€鈹€ 閰嶇疆 鈹€鈹€
+LLM_BASE_URL = os.getenv("LLM_BASE_URL", "https://api.deepseek.com/v1")
+LLM_API_KEY = os.getenv("LLM_API_KEY", "")
+LLM_MODEL = os.getenv("LLM_MODEL", "deepseek-chat")
+LLM_TIMEOUT = int(os.getenv("LLM_TIMEOUT", "60"))
+PORT = int(os.getenv("PORT", "8765"))
+
+# 鈹€鈹€ 寤惰繜鍔犺浇 fetcher锛堥伩鍏嶅惎鍔ㄦ椂 import 閾惧穿婧冿級鈹€鈹€
+_fetcher_loaded = False
+SOURCE_NAMES: dict = {}
+_fetch_articles_fn = None
+_fetch_full_fn = None
+
+def _ensure_fetcher():
+    """寤惰繜鍔犺浇锛岄娆?API 璋冪敤鏃舵墠 import"""
+    global _fetcher_loaded, SOURCE_NAMES, _fetch_articles_fn, _fetch_full_fn
+    if _fetcher_loaded:
+        return True
+    try:
+        from tools.fetcher import fetch_articles as fa, fetch_full_article_safe as ff, SOURCE_NAMES as sn
+        _fetch_articles_fn = fa
+        _fetch_full_fn = ff
+        SOURCE_NAMES = sn
+        _fetcher_loaded = True
+        print(f"Fetcher OK: {len(SOURCE_NAMES)} sources loaded")
+        return True
+    except Exception as e:
+        print(f"Fetcher load failed: {e}")
+        print(traceback.format_exc())
+        return False
+
+async def fetch_articles(sources=None, count=15):
+    if _ensure_fetcher():
+        return await _fetch_articles_fn(sources=sources, count=count)
+    return {"articles": [], "stats": {}, "total": 0, "deep_count": 0, "medium_count": 0}
+
+async def fetch_full_article_safe(url, source):
+    if _ensure_fetcher():
+        return await _fetch_full_fn(url, source)
+    return None
+
+# 鈹€鈹€ LLM 娣卞害瑙ｈ 鈹€鈹€
+
+PROMPT_TEMPLATE = """浣犳槸涓€涓笓涓氱殑AI琛屼笟鍒嗘瀽甯堛€傝瀵逛互涓嬫枃绔犺繘琛屾繁搴﹀垎鏋愶紝鎸夌収鎸囧畾鏍煎紡杈撳嚭銆?
+## 鏂囩珷鍐呭
+
+{content}
+
+## 杈撳嚭鏍煎紡锛堜弗鏍兼寜浠ヤ笅缁撴瀯锛岀敤涓枃鍥炵瓟锛?
+銆愭牳蹇冭鐐广€?锛堝～鍐欎竴鍙ヨ瘽鏍稿績璁虹偣锛?0-50瀛楋紝蹇呴』鏄鐐规彁鐐硷級
+
+銆愪富棰樺垎绫汇€?锛堜粠浠ヤ笅閫夋嫨锛欰I Agent涓庡伐绋嬨€丄I鍟嗕笟涓庤秼鍔裤€佷紒涓氭暟瀛楀寲杞瀷銆丄I鍒涗綔涓庡唴瀹广€佺煡璇嗙鐞嗕笌鏁堢巼銆佷汉褰㈡満鍣ㄤ汉涓庣‖浠躲€佽法棰嗗煙缁煎悎锛?
+銆愬叧閿鏋躲€?锛堟枃绔犱腑鏄庣‘鎻愬嚭鐨勬柟娉曡/妯″瀷/妗嗘灦鍚嶇О锛屾瘡琛屼竴涓紝娌℃湁灏卞啓 鏃狅級
+
+銆愭礊瀵熻鐐广€?- 锛堝垎鏋愭€ф礊瀵?锛屽洖绛?涓轰粈涔?锛屼笉瑕佹憳鎶勫師鏂囷級
+- 锛堝垎鏋愭€ф礊瀵?锛?
+銆愭暟鎹湅鐐广€?- 锛堝叧閿暟鎹紝娌℃湁灏卞啓 鏃犲叧閿暟鎹級
+
+銆愯鍔ㄥ惎鍙戙€?- 锛堝彲鎵ц寤鸿1锛屽洖绛?鎬庝箞鍋?锛屼笌娲炲療瑕佺偣瀹屽叏涓嶅悓锛?- 锛堝彲鎵ц寤鸿2锛?
+## 瑙勫垯
+- 娲炲療瑕佺偣锛氬洜鏋滃垎鏋愩€佽秼鍔垮垽鏂€佽儗鍚庨€昏緫锛岀粷瀵逛笉鑳界洿鎺ユ憳鎶勫師鏂?- 琛屽姩鍚彂锛氶潰鍚戜骇鍝佺粡鐞?AI浠庝笟鑰呯殑鍙墽琛屽缓璁紝涓庢礊瀵熻鐐瑰唴瀹逛笉鑳介噸澶?- 姣忔澘鍧?-5鏉★紝瀹佺己姣嬫互
+- 涓嶈缂栭€犳枃绔犱腑涓嶅瓨鍦ㄧ殑淇℃伅"""
+
+def _parse_section(text: str, tag: str) -> list[str]:
+    pattern = re.escape(tag) + r'\s*\n(.*?)(?=\n\u3010|\Z)'
+    match = re.search(pattern, text, re.DOTALL)
+    if not match:
+        return []
+    items = []
+    for line in match.group(1).strip().split('\n'):
+        line = line.strip()
+        if not line:
+            continue
+        line = re.sub(r'^[-*鈥\s*', '', line)
+        line = re.sub(r'^\d+[.銆乚\s*', '', line)
+        if line in ('鏃?, '鏃犲叧閿暟鎹?, '鐣?, '锛堟棤锛?, '鏆傛棤'):
+            continue
+        if len(line) >= 6:
+            items.append(line)
+    return items
+
+def _parse_single(text: str, tag: str) -> str:
+    items = _parse_section(text, tag)
+    return items[0] if items else ""
+
+async def llm_deep_read(content: str, source: str = "", url: str = "") -> dict:
+    if len(content) < 100:
+        return None
+    max_chars = 8000
+    text = content[:max_chars]
+    if len(content) > max_chars:
+        text += f"\n\n[鍘熸枃鍏?{len(content)} 瀛楋紝姝ゅ鎴彇鍓?{max_chars} 瀛梋"
+    prompt = PROMPT_TEMPLATE.format(content=text)
+    try:
+        async with httpx.AsyncClient(timeout=LLM_TIMEOUT) as client:
+            resp = await client.post(
+                f"{LLM_BASE_URL}/chat/completions",
+                headers={"Authorization": f"Bearer {LLM_API_KEY}", "Content-Type": "application/json"},
+                json={
+                    "model": LLM_MODEL,
+                    "messages": [
+                        {"role": "system", "content": "浣犳槸涓€涓笓涓氱殑AI琛屼笟鍒嗘瀽甯堛€備弗鏍兼寜鐓ф寚瀹氭牸寮忚緭鍑哄垎鏋愮粨鏋溿€?},
+                        {"role": "user", "content": prompt},
+                    ],
+                    "temperature": 0.3, "max_tokens": 2000,
+                },
+            )
+            if resp.status_code != 200:
+                return None
+            data = resp.json()
+            raw = data["choices"][0]["message"]["content"]
+            return {
+                "thesis": _parse_single(raw, "銆愭牳蹇冭鐐广€?),
+                "category": _parse_single(raw, "銆愪富棰樺垎绫汇€?),
+                "frameworks": _parse_section(raw, "銆愬叧閿鏋躲€?),
+                "insights": _parse_section(raw, "銆愭礊瀵熻鐐广€?),
+                "data_points": _parse_section(raw, "銆愭暟鎹湅鐐广€?),
+                "takeaways": _parse_section(raw, "銆愯鍔ㄥ惎鍙戙€?),
+            }
+    except Exception as e:
+        print(f"LLM call failed: {e}")
+        return None
+
+def _check_content_quality(text: str) -> dict:
+    if not text:
+        return {"noise_ratio": 1.0, "word_count": 0}
+    lines = text.split("\n")
+    noise_lines = 0
+    noise_patterns = [
+        r"^\s*[.#@]\w+\s*\{", r"^\s*(function|const|let|var|import|export)\s",
+        r"^\s*(window|document|console)\.", r"^\s*\{\s*$", r"^\s*\}\s*$",
+        r"^\s*\/\/", r"^\s*\/\*|\*\/", r"^\s*@media|@import|@keyframes",
+        r"^\s*<\w+[^>]*>", r"^\s*;[^;]{0,5}$", r"^\s*\)\s*$",
+        r"^\s*catch|try\b|finally\b", r"^\s*\.then|\.catch|\.finally",
+        r"^\s*async\s+function", r"^\s*useState|useEffect|useCallback|useMemo",
+    ]
+    for line in lines:
+        if not line.strip():
+            continue
+        for p in noise_patterns:
+            if re.search(p, line.strip(), re.IGNORECASE):
+                noise_lines += 1
+                break
+    return {"noise_ratio": round(noise_lines / max(len(lines), 1), 2),
+            "word_count": len(re.findall(r"[\u4e00-\u9fff]", text))}
+
+
+# 鈹€鈹€ API 璺敱 鈹€鈹€
+
+@app.get("/api/health")
+async def health():
+    return {
+        "status": "ok",
+        "llm_configured": bool(LLM_API_KEY),
+        "model": LLM_MODEL,
+        "fetcher_loaded": _fetcher_loaded,
+        "sources": len(SOURCE_NAMES),
+        "timestamp": datetime.now().isoformat()
+    }
+
+@app.get("/api/diag")
+async def diag():
+    """鍚姩璇婃柇锛氭鏌ユ墍鏈変緷璧栨槸鍚﹀彲鐢?""
+    result = {"python": sys.version, "packages": {}}
+    for pkg in ["fastapi", "uvicorn", "httpx", "aiohttp", "trafilatura", "feedparser", "lxml"]:
+        try:
+            __import__(pkg)
+            result["packages"][pkg] = "OK"
+        except ImportError:
+            result["packages"][pkg] = "MISSING"
+    result["fetcher_ok"] = _ensure_fetcher()
+    result["sources"] = len(SOURCE_NAMES) if _fetcher_loaded else 0
+    return result
+
+@app.get("/api/sources")
+async def list_sources():
+    _ensure_fetcher()
+    return {"sources": [{"key": k, "name": v} for k, v in SOURCE_NAMES.items()],
+            "total": len(SOURCE_NAMES)}
+
+@app.get("/api/fetch")
+async def fetch_news(sources: str = Query(None), count: int = Query(15)):
+    source_list = None
+    if sources:
+        source_list = [s.strip() for s in sources.split(",") if s.strip() in SOURCE_NAMES]
+    result = await fetch_articles(sources=source_list, count=count)
+    return {"articles": result["articles"], "stats": result["stats"],
+            "total": result["total"], "deep_count": result["deep_count"],
+            "medium_count": result["medium_count"], "timestamp": datetime.now().isoformat()}
+
+@app.get("/api/deep-read")
+async def deep_read(url: str = Query(...), source: str = Query("")):
+    if not url:
+        return JSONResponse({"error": "璇锋彁渚?URL"}, status_code=400)
+    if not LLM_API_KEY:
+        return {"status": "no_api_key", "message": "LLM API Key 鏈厤缃?, "url": url}
+    full_text = await fetch_full_article_safe(url, source)
+    if not full_text or len(full_text) < 200:
+        return {"status": "fallback", "message": "鏃犳硶鑾峰彇鍏ㄦ枃锛堝弽鐖垨浠樿垂澧欙級", "url": url}
+    quality = _check_content_quality(full_text)
+    if quality["noise_ratio"] > 0.3 or quality["word_count"] < 50:
+        return {"status": "low_quality",
+                "message": f"鍐呭璐ㄩ噺杩囦綆锛堝櫔澹版瘮 {quality['noise_ratio']:.0%}锛?, "url": url}
+    result = await llm_deep_read(full_text, source, url)
+    if not result:
+        return {"status": "partial", "full_text": full_text[:3000], "message": "LLM 瑙ｈ澶辫触"}
+    return {"status": "success", "full_text_length": len(full_text), **result}
+
+@app.get("/", response_class=HTMLResponse)
+async def index():
+    html_path = Path(__file__).parent / "static" / "index.html"
+    return html_path.read_text(encoding="utf-8")
+
+if __name__ == "__main__":
+    print(f"\n{'='*60}")
+    print(f"  AI鏃ユ姤 MCP Server v3.1 (浜戦儴缃茬増)")
+    print(f"  LLM: {LLM_MODEL} @ {LLM_BASE_URL}")
+    print(f"  Key configured: {bool(LLM_API_KEY)}")
+    print(f"{'='*60}\n")
+    uvicorn.run(app, host="0.0.0.0", port=PORT, log_level="info")
