@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.log
+.git/
+*.bat
+cloudflared*
+test_client.py
+push_ci.py
+check_repo.py
+push_ci.py
