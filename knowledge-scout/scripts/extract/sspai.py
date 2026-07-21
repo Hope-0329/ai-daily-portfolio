@@ -1,1 +1,43 @@
-IiIi5bCR5pWw5rS+IOKAlCBSU1Mg5pWI546H5bel5YW36K+E5rWLIiIiCgppbXBvcnQgc3lzCmZyb20gcGF0aGxpYiBpbXBvcnQgUGF0aApzeXMucGF0aC5pbnNlcnQoMCwgc3RyKFBhdGgoX19maWxlX18pLnJlc29sdmUoKS5wYXJlbnQucGFyZW50KSkKaW1wb3J0IGFpb2h0dHAKZnJvbSB1dGlscy5yc3NfZmV0Y2hlciBpbXBvcnQgZmV0Y2hfcnNzCmZyb20gdXRpbHMuaW50ZXJlc3RfZmlsdGVyIGltcG9ydCBjbGFzc2lmeV9hcnRpY2xlCmZyb20gLmJhc2UgaW1wb3J0IEJhc2VFeHRyYWN0b3IsIEFydGljbGUKCgpjbGFzcyBTc3BhaUV4dHJhY3RvcihCYXNlRXh0cmFjdG9yKToKICAgIEZFRURfVVJMID0gImh0dHBzOi8vc3NwYWkuY29tL2ZlZWQiCgogICAgYXN5bmMgZGVmIGZldGNoKHNlbGYpIC0+IGxpc3RbQXJ0aWNsZV06CiAgICAgICAgYXJ0aWNsZXMgPSBbXQogICAgICAgIGhlYWRlcnMgPSB7CiAgICAgICAgICAgICJVc2VyLUFnZW50IjogIk1vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiIKICAgICAgICB9CiAgICAgICAgYXN5bmMgd2l0aCBhaW9odHRwLkNsaWVudFNlc3Npb24oaGVhZGVycz1oZWFkZXJzKSBhcyBzZXNzaW9uOgogICAgICAgICAgICBpdGVtcyA9IGF3YWl0IGZldGNoX3JzcyhzZXNzaW9uLCBzZWxmLkZFRURfVVJMKQogICAgICAgICAgICBpZiBub3QgaXRlbXM6CiAgICAgICAgICAgICAgICByZXR1cm4gYXJ0aWNsZXMKCiAgICAgICAgICAgIGZvciBpdGVtIGluIGl0ZW1zWzozMF06CiAgICAgICAgICAgICAgICB0aXRsZSA9IGl0ZW1bInRpdGxlIl0KICAgICAgICAgICAgICAgIHN1bW1hcnkgPSBpdGVtWyJzdW1tYXJ5Il0KICAgICAgICAgICAgICAgIGNhdGVnb3J5LCBzY29yZSA9IGNsYXNzaWZ5X2FydGljbGUodGl0bGUsIHN1bW1hcnkpCiAgICAgICAgICAgICAgICBpZiBzY29yZSA8IDIuMDoKICAgICAgICAgICAgICAgICAgICBjb250aW51ZQoKICAgICAgICAgICAgICAgIGFydGljbGVzLmFwcGVuZChBcnRpY2xlKAogICAgICAgICAgICAgICAgICAgIHBsYXRmb3JtPSJzc3BhaSIsCiAgICAgICAgICAgICAgICAgICAgdGl0bGU9dGl0bGUsCiAgICAgICAgICAgICAgICAgICAgdXJsPWl0ZW1bInVybCJdLAogICAgICAgICAgICAgICAgICAgIHN1bW1hcnk9c3VtbWFyeVs6MjAwXSwKICAgICAgICAgICAgICAgICAgICBhdXRob3I9aXRlbVsiYXV0aG9yIl0sCiAgICAgICAgICAgICAgICAgICAgcHVibGlzaGVkPWl0ZW1bInB1Ymxpc2hlZCJdLAogICAgICAgICAgICAgICAgICAgIGNhdGVnb3J5PWNhdGVnb3J5LAogICAgICAgICAgICAgICAgICAgIHJhd19zY29yZT1zY29yZSwKICAgICAgICAgICAgICAgICAgICBtZXRhZGF0YT17InNvdXJjZSI6ICLlsJHmlbDmtL4ifSwKICAgICAgICAgICAgICAgICkpCiAgICAgICAgcmV0dXJuIGFydGljbGVzCg==
+"""灏戞暟娲?鈥?RSS 鏁堢巼宸ュ叿璇勬祴"""
+
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+import httpx
+from utils.rss_fetcher import fetch_rss
+from utils.interest_filter import classify_article
+from .base import BaseExtractor, Article
+
+
+class SspaiExtractor(BaseExtractor):
+    FEED_URL = "https://sspai.com/feed"
+
+    async def fetch(self) -> list[Article]:
+        articles = []
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        }
+        async with httpx.AsyncClient(headers=headers) as session:
+            items = await fetch_rss(session, self.FEED_URL)
+            if not items:
+                return articles
+
+            for item in items[:30]:
+                title = item["title"]
+                summary = item["summary"]
+                category, score = classify_article(title, summary)
+                if score < 2.0:
+                    continue
+
+                articles.append(Article(
+                    platform="sspai",
+                    title=title,
+                    url=item["url"],
+                    summary=summary[:200],
+                    author=item["author"],
+                    published=item["published"],
+                    category=category,
+                    raw_score=score,
+                    metadata={"source": "灏戞暟娲?},
+                ))
+        return articles
