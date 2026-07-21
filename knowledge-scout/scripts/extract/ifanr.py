@@ -1,1 +1,43 @@
-IiIi54ix6IyD5YS/IOKAlCBSU1Mg56eR5oqA5raI6LS56KeC5a+fIiIiCgppbXBvcnQgc3lzCmZyb20gcGF0aGxpYiBpbXBvcnQgUGF0aApzeXMucGF0aC5pbnNlcnQoMCwgc3RyKFBhdGgoX19maWxlX18pLnJlc29sdmUoKS5wYXJlbnQucGFyZW50KSkKaW1wb3J0IGFpb2h0dHAKZnJvbSB1dGlscy5yc3NfZmV0Y2hlciBpbXBvcnQgZmV0Y2hfcnNzCmZyb20gdXRpbHMuaW50ZXJlc3RfZmlsdGVyIGltcG9ydCBjbGFzc2lmeV9hcnRpY2xlCmZyb20gLmJhc2UgaW1wb3J0IEJhc2VFeHRyYWN0b3IsIEFydGljbGUKCgpjbGFzcyBJZmFuckV4dHJhY3RvcihCYXNlRXh0cmFjdG9yKToKICAgIEZFRURfVVJMID0gImh0dHBzOi8vd3d3LmlmYW5yLmNvbS9mZWVkIgoKICAgIGFzeW5jIGRlZiBmZXRjaChzZWxmKSAtPiBsaXN0W0FydGljbGVdOgogICAgICAgIGFydGljbGVzID0gW10KICAgICAgICBoZWFkZXJzID0gewogICAgICAgICAgICAiVXNlci1BZ2VudCI6ICJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYiCiAgICAgICAgfQogICAgICAgIGFzeW5jIHdpdGggYWlvaHR0cC5DbGllbnRTZXNzaW9uKGhlYWRlcnM9aGVhZGVycywgdGltZW91dD1haW9odHRwLkNsaWVudFRpbWVvdXQodG90YWw9MTUpKSBhcyBzZXNzaW9uOgogICAgICAgICAgICBpdGVtcyA9IGF3YWl0IGZldGNoX3JzcyhzZXNzaW9uLCBzZWxmLkZFRURfVVJMKQogICAgICAgICAgICBpZiBub3QgaXRlbXM6CiAgICAgICAgICAgICAgICByZXR1cm4gYXJ0aWNsZXMKCiAgICAgICAgICAgIGZvciBpdGVtIGluIGl0ZW1zWzo1MF06CiAgICAgICAgICAgICAgICB0aXRsZSA9IGl0ZW1bInRpdGxlIl0KICAgICAgICAgICAgICAgIHN1bW1hcnkgPSBpdGVtWyJzdW1tYXJ5Il0KICAgICAgICAgICAgICAgIGNhdGVnb3J5LCBzY29yZSA9IGNsYXNzaWZ5X2FydGljbGUodGl0bGUsIHN1bW1hcnkpCiAgICAgICAgICAgICAgICBpZiBzY29yZSA8IDIuMDoKICAgICAgICAgICAgICAgICAgICBjb250aW51ZQoKICAgICAgICAgICAgICAgIGFydGljbGVzLmFwcGVuZChBcnRpY2xlKAogICAgICAgICAgICAgICAgICAgIHBsYXRmb3JtPSJpZmFuciIsCiAgICAgICAgICAgICAgICAgICAgdGl0bGU9dGl0bGUsCiAgICAgICAgICAgICAgICAgICAgdXJsPWl0ZW1bInVybCJdLAogICAgICAgICAgICAgICAgICAgIHN1bW1hcnk9c3VtbWFyeVs6MjAwXSwKICAgICAgICAgICAgICAgICAgICBhdXRob3I9aXRlbVsiYXV0aG9yIl0sCiAgICAgICAgICAgICAgICAgICAgcHVibGlzaGVkPWl0ZW1bInB1Ymxpc2hlZCJdLAogICAgICAgICAgICAgICAgICAgIGNhdGVnb3J5PWNhdGVnb3J5LAogICAgICAgICAgICAgICAgICAgIHJhd19zY29yZT1zY29yZSwKICAgICAgICAgICAgICAgICAgICBtZXRhZGF0YT17InNvdXJjZSI6ICLniLHojIPlhL8ifSwKICAgICAgICAgICAgICAgICkpCiAgICAgICAgcmV0dXJuIGFydGljbGVzCg==
+"""鐖辫寖鍎?鈥?RSS 绉戞妧娑堣垂瑙傚療"""
+
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+import httpx
+from utils.rss_fetcher import fetch_rss
+from utils.interest_filter import classify_article
+from .base import BaseExtractor, Article
+
+
+class IfanrExtractor(BaseExtractor):
+    FEED_URL = "https://www.ifanr.com/feed"
+
+    async def fetch(self) -> list[Article]:
+        articles = []
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        }
+        async with httpx.AsyncClient(headers=headers, timeout=15.0) as session:
+            items = await fetch_rss(session, self.FEED_URL)
+            if not items:
+                return articles
+
+            for item in items[:50]:
+                title = item["title"]
+                summary = item["summary"]
+                category, score = classify_article(title, summary)
+                if score < 2.0:
+                    continue
+
+                articles.append(Article(
+                    platform="ifanr",
+                    title=title,
+                    url=item["url"],
+                    summary=summary[:200],
+                    author=item["author"],
+                    published=item["published"],
+                    category=category,
+                    raw_score=score,
+                    metadata={"source": "鐖辫寖鍎?},
+                ))
+        return articles
