@@ -1,1 +1,88 @@
-IiIiQuermSDigJQg5pCc57SiICsg54Ot6Zeo77yM55So5YW06Laj5YiG57G7562b6YCJIiIiCgppbXBvcnQgc3lzCmZyb20gcGF0aGxpYiBpbXBvcnQgUGF0aApzeXMucGF0aC5pbnNlcnQoMCwgc3RyKFBhdGgoX19maWxlX18pLnJlc29sdmUoKS5wYXJlbnQucGFyZW50KSkKZnJvbSB1dGlscy5lbnZfcmVhZGVyIGltcG9ydCBnZXRfZW52CmZyb20gdXRpbHMuaW50ZXJlc3RfZmlsdGVyIGltcG9ydCBpc19xdWFsaXR5X2FydGljbGUsIGNsYXNzaWZ5X2FydGljbGUKaW1wb3J0IHJlCmltcG9ydCBhaW9odHRwCmZyb20gLmJhc2UgaW1wb3J0IEJhc2VFeHRyYWN0b3IsIEFydGljbGUKCiMg5pCc57Si5YWz6ZSu6K+NIOKAlCDlgY/ooYzkuJrliIbmnpAv5bel5YW36K+E5rWLL+WIm+S9nOaWueWQkQpTRUFSQ0hfS0VZV09SRFMgPSBbCiAgICAiQUnooYzkuJrliIbmnpAiLCAiQUnlt6XlhbfmjqjojZAiLCAiQUnllYbkuJrljJYiLAogICAgIkFJ6KeG6aKR55Sf5oiQIiwgIkFJ55+t5YmnIiwgIkFJR0PliJvkvZwiLAogICAgIuWkp+aooeWei+W6lOeUqCIsICJEZWVwU2VlayIsICJDaGF0R1BUIiwKICAgICJBSSBBZ2VudCIsICLmlYjnjoflt6XlhbciLCAi6Ieq5Yqo5YyW5bel5L2c5rWBIiwKXQoKCmNsYXNzIEJpbGliaWxpRXh0cmFjdG9yKEJhc2VFeHRyYWN0b3IpOgogICAgU0VBUkNIX1VSTCA9ICJodHRwczovL2FwaS5iaWxpYmlsaS5jb20veC93ZWItaW50ZXJmYWNlL3NlYXJjaC90eXBlIgoKICAgIGFzeW5jIGRlZiBmZXRjaChzZWxmKSAtPiBsaXN0W0FydGljbGVdOgogICAgICAgIHNlc3NkYXRhID0gZ2V0X2VudigiQklMSUJJTElfU0VTU0RBVEEiLCAiIikKICAgICAgICBjb29raWVzID0geyJTRVNTREFUQSI6IHNlc3NkYXRhfSBpZiBzZXNzZGF0YSBlbHNlIHt9CiAgICAgICAgaGVhZGVycyA9IHsKICAgICAgICAgICAgIlVzZXItQWdlbnQiOiAiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IiwKICAgICAgICAgICAgIlJlZmVyZXIiOiAiaHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tIiwKICAgICAgICB9CgogICAgICAgIGFydGljbGVzID0gW10KICAgICAgICBhc3luYyB3aXRoIGFpb2h0dHAuQ2xpZW50U2Vzc2lvbihjb29raWVzPWNvb2tpZXMsIGhlYWRlcnM9aGVhZGVycykgYXMgc2Vzc2lvbjoKICAgICAgICAgICAgZm9yIGtleXdvcmQgaW4gU0VBUkNIX0tFWVdPUkRTOgogICAgICAgICAgICAgICAgcGFyYW1zID0gewogICAgICAgICAgICAgICAgICAgICJrZXl3b3JkIjoga2V5d29yZCwKICAgICAgICAgICAgICAgICAgICAic2VhcmNoX3R5cGUiOiAidmlkZW8iLAogICAgICAgICAgICAgICAgICAgICJvcmRlciI6ICJwdWJkYXRlIiwKICAgICAgICAgICAgICAgICAgICAicGFnZSI6IDEsCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB0cnk6CiAgICAgICAgICAgICAgICAgICAgYXN5bmMgd2l0aCBzZXNzaW9uLmdldChzZWxmLlNFQVJDSF9VUkwsIHBhcmFtcz1wYXJhbXMsIHRpbWVvdXQ9MTApIGFzIHJlc3A6CiAgICAgICAgICAgICAgICAgICAgICAgIGRhdGEgPSBhd2FpdCByZXNwLmpzb24oKQogICAgICAgICAgICAgICAgICAgIGZvciB2IGluIGRhdGEuZ2V0KCJkYXRhIiwge30pLmdldCgicmVzdWx0IiwgW10pWzoxMF06CiAgICAgICAgICAgICAgICAgICAgICAgIGFydGljbGUgPSBzZWxmLl9wYXJzZV92aWRlbyh2KQogICAgICAgICAgICAgICAgICAgICAgICBpZiBhcnRpY2xlOgogICAgICAgICAgICAgICAgICAgICAgICAgICAgYXJ0aWNsZXMuYXBwZW5kKGFydGljbGUpCiAgICAgICAgICAgICAgICBleGNlcHQgRXhjZXB0aW9uOgogICAgICAgICAgICAgICAgICAgIGNvbnRpbnVlCgogICAgICAgIHJldHVybiBhcnRpY2xlcwoKICAgIGRlZiBfcGFyc2VfdmlkZW8oc2VsZiwgdjogZGljdCkgLT4gQXJ0aWNsZSB8IE5vbmU6CiAgICAgICAgdGl0bGUgPSB2LmdldCgidGl0bGUiLCAiIikucmVwbGFjZSgnPGVtIGNsYXNzPSJrZXl3b3JkIj4nLCAnJykucmVwbGFjZSgnPC9lbT4nLCAnJykKICAgICAgICBpZiBub3QgdGl0bGU6CiAgICAgICAgICAgIHJldHVybiBOb25lCgogICAgICAgIGRlc2MgPSB2LmdldCgiZGVzYyIsICIiKSBvciB2LmdldCgiZGVzY3JpcHRpb24iLCAiIikKCiAgICAgICAgIyDlhbTotqPnrZvpgIkKICAgICAgICBpZiBub3QgaXNfcXVhbGl0eV9hcnRpY2xlKHRpdGxlLCBkZXNjKToKICAgICAgICAgICAgcmV0dXJuIE5vbmUKCiAgICAgICAgY2F0ZWdvcnksIHNjb3JlID0gY2xhc3NpZnlfYXJ0aWNsZSh0aXRsZSwgZGVzYykKCiAgICAgICAgc3RhdCA9IHYuZ2V0KCJzdGF0Iiwge30pIG9yIHYKICAgICAgICBwbGF5ID0gc3RhdC5nZXQoInZpZXciLCAwKQogICAgICAgIGZhdm9yaXRlID0gc3RhdC5nZXQoImZhdm9yaXRlIiwgMCkKICAgICAgICBkYW5tYWt1ID0gc3RhdC5nZXQoImRhbm1ha3UiLCAwKQoKICAgICAgICBhdXRob3IgPSB2LmdldCgib3duZXIiLCB7fSkuZ2V0KCJuYW1lIiwgIiIpIG9yIHYuZ2V0KCJhdXRob3IiLCAiIikKICAgICAgICBidmlkID0gdi5nZXQoImJ2aWQiLCAiIikKICAgICAgICBwdWJkYXRlID0gdi5nZXQoInB1YmRhdGUiLCAwKQoKICAgICAgICAjIOe7vOWQiOivhOWIhu+8muWFtOi2o+WMuemFjSArIOeDreW6pgogICAgICAgIHBvcHVsYXJpdHkgPSBwbGF5ICogMC4wMSArIGZhdm9yaXRlICogMC41ICsgZGFubWFrdSAqIDAuMwogICAgICAgIGZpbmFsX3Njb3JlID0gc2NvcmUgKiAyICsgcG9wdWxhcml0eQoKICAgICAgICByZXR1cm4gQXJ0aWNsZSgKICAgICAgICAgICAgcGxhdGZvcm09ImJpbGliaWxpIiwKICAgICAgICAgICAgdGl0bGU9dGl0bGUsCiAgICAgICAgICAgIHVybD1mImh0dHBzOi8vd3d3LmJpbGliaWxpLmNvbS92aWRlby97YnZpZH0iIGlmIGJ2aWQgZWxzZSAiIiwKICAgICAgICAgICAgc3VtbWFyeT1kZXNjWzoyMDBdLAogICAgICAgICAgICBhdXRob3I9YXV0aG9yLAogICAgICAgICAgICBwdWJsaXNoZWQ9c3RyKHB1YmRhdGUpLAogICAgICAgICAgICBjYXRlZ29yeT1jYXRlZ29yeSwKICAgICAgICAgICAgcmF3X3Njb3JlPWZpbmFsX3Njb3JlLAogICAgICAgICAgICBtZXRhZGF0YT17InBsYXlzIjogcGxheSwgImZhdm9yaXRlcyI6IGZhdm9yaXRlLCAiZGFubWFrdSI6IGRhbm1ha3V9LAogICAgICAgICkK
+"""B绔?鈥?鎼滅储 + 鐑棬锛岀敤鍏磋叮鍒嗙被绛涢€?""
+
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from utils.env_reader import get_env
+from utils.interest_filter import is_quality_article, classify_article
+import re
+import httpx
+from .base import BaseExtractor, Article
+
+# 鎼滅储鍏抽敭璇?鈥?鍋忚涓氬垎鏋?宸ュ叿璇勬祴/鍒涗綔鏂瑰悜
+SEARCH_KEYWORDS = [
+    "AI琛屼笟鍒嗘瀽", "AI宸ュ叿鎺ㄨ崘", "AI鍟嗕笟鍖?,
+    "AI瑙嗛鐢熸垚", "AI鐭墽", "AIGC鍒涗綔",
+    "澶фā鍨嬪簲鐢?, "DeepSeek", "ChatGPT",
+    "AI Agent", "鏁堢巼宸ュ叿", "鑷姩鍖栧伐浣滄祦",
+]
+
+
+class BilibiliExtractor(BaseExtractor):
+    SEARCH_URL = "https://api.bilibili.com/x/web-interface/search/type"
+
+    async def fetch(self) -> list[Article]:
+        sessdata = get_env("BILIBILI_SESSDATA", "")
+        cookies = {"SESSDATA": sessdata} if sessdata else {}
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+            "Referer": "https://www.bilibili.com",
+        }
+
+        articles = []
+        async with httpx.AsyncClient(cookies=cookies, headers=headers) as session:
+            for keyword in SEARCH_KEYWORDS:
+                params = {
+                    "keyword": keyword,
+                    "search_type": "video",
+                    "order": "pubdate",
+                    "page": 1,
+                }
+                try:
+                    async with session.get(self.SEARCH_URL, params=params, timeout=10) as resp:
+                        data = resp.json()
+                    for v in data.get("data", {}).get("result", [])[:10]:
+                        article = self._parse_video(v)
+                        if article:
+                            articles.append(article)
+                except Exception:
+                    continue
+
+        return articles
+
+    def _parse_video(self, v: dict) -> Article | None:
+        title = v.get("title", "").replace('<em class="keyword">', '').replace('</em>', '')
+        if not title:
+            return None
+
+        desc = v.get("desc", "") or v.get("description", "")
+
+        # 鍏磋叮绛涢€?        if not is_quality_article(title, desc):
+            return None
+
+        category, score = classify_article(title, desc)
+
+        stat = v.get("stat", {}) or v
+        play = stat.get("view", 0)
+        favorite = stat.get("favorite", 0)
+        danmaku = stat.get("danmaku", 0)
+
+        author = v.get("owner", {}).get("name", "") or v.get("author", "")
+        bvid = v.get("bvid", "")
+        pubdate = v.get("pubdate", 0)
+
+        # 缁煎悎璇勫垎锛氬叴瓒ｅ尮閰?+ 鐑害
+        popularity = play * 0.01 + favorite * 0.5 + danmaku * 0.3
+        final_score = score * 2 + popularity
+
+        return Article(
+            platform="bilibili",
+            title=title,
+            url=f"https://www.bilibili.com/video/{bvid}" if bvid else "",
+            summary=desc[:200],
+            author=author,
+            published=str(pubdate),
+            category=category,
+            raw_score=final_score,
+            metadata={"plays": play, "favorites": favorite, "danmaku": danmaku},
+        )
