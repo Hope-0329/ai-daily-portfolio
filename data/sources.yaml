@@ -1,0 +1,569 @@
+sources:
+- id: qbitai
+  name: 量子位
+  name_display: 量子位
+  url: https://www.qbitai.com/feed
+  type: rss
+  tier: 1
+  language: zh
+  category_weights: &id001
+    ai-models: 0.3
+    ai-products: 0.3
+    industry: 0.3
+    paper: 0.05
+    tip: 0.05
+  enabled: true
+  fetch_interval_min: 60
+- id: jiqizhixin
+  name: 机器之心
+  name_display: 机器之心
+  url: https://www.jiqizhixin.com/rss
+  type: rss
+  tier: 1
+  language: zh
+  category_weights: *id001
+  enabled: true
+  fetch_interval_min: 60
+  fetch_timeout: 30
+- id: 36kr-ai
+  name: 36氪 AI
+  name_display: 36氪 AI
+  url: https://36kr.com/feed?category=ai
+  type: rss
+  tier: 1
+  language: zh
+  category_weights: *id001
+  enabled: true
+  fetch_interval_min: 60
+- id: huxiu-ai
+  name: 虎嗅 AI
+  name_display: 虎嗅 AI（RSSHub 24小时）
+  url: https://rsshub.rssforever.com/huxiu/moment
+  type: rsshub
+  tier: 1
+  language: zh
+  category_weights: *id001
+  enabled: true
+  fetch_interval_min: 60
+  fetch_timeout: 45
+- id: sspai
+  name: 少数派
+  name_display: 少数派
+  url: https://sspai.com/feed
+  type: rss
+  tier: 1
+  language: zh
+  category_weights: *id001
+  enabled: true
+  fetch_interval_min: 60
+- id: ifanr
+  name: 爱范儿
+  name_display: 爱范儿
+  url: https://www.ifanr.com/feed
+  type: rss
+  tier: 1
+  language: zh
+  category_weights: *id001
+  enabled: true
+  fetch_interval_min: 60
+- id: dudongai
+  name: 读懂 AI 时代
+  name_display: 读懂 AI 时代（Read AI Time）
+  url: https://www.readaitime.com/
+  type: web
+  tier: 1
+  language: zh
+  category_weights: *id001
+  enabled: true
+  fetch_interval_min: 60
+- id: openai-blog
+  name: OpenAI Blog
+  name_display: OpenAI Blog
+  url: https://openai.com/news/rss.xml
+  type: rss
+  tier: 1
+  language: en
+  category_weights: &id002
+    ai-models: 0.4
+    ai-products: 0.3
+    industry: 0.2
+    paper: 0.05
+    tip: 0.05
+  enabled: true
+  fetch_interval_min: 60
+- id: anthropic-blog
+  name: Anthropic Blog
+  name_display: Anthropic Blog（社区 RSS 镜像）
+  url: https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_news.xml
+  type: rss
+  tier: 1
+  language: en
+  category_weights: *id002
+  enabled: true
+  fetch_interval_min: 60
+- id: deepmind
+  name: Google DeepMind
+  name_display: Google DeepMind
+  url: https://blog.google/technology/ai/rss/
+  type: rss
+  tier: 1
+  language: en
+  category_weights: *id002
+  enabled: true
+  fetch_interval_min: 60
+- id: meta-ai
+  name: Meta AI Blog
+  name_display: Meta AI Blog
+  url: https://ai.meta.com/blog/feed/
+  type: rss
+  tier: 1
+  language: en
+  category_weights: *id002
+  enabled: false
+  fetch_interval_min: 60
+  disable_reason: 访问超时，疑似被墙
+- id: microsoft-ai
+  name: Microsoft AI Blog
+  name_display: Microsoft AI Blog
+  url: https://news.microsoft.com/source/topics/ai/feed/
+  type: rss
+  tier: 1
+  language: en
+  category_weights: *id002
+  enabled: true
+  fetch_interval_min: 60
+- id: huggingface-blog
+  name: Hugging Face Blog
+  name_display: Hugging Face Blog
+  url: https://huggingface.co/blog/feed.xml
+  type: rss
+  tier: 1
+  language: en
+  category_weights: *id002
+  enabled: false
+  fetch_interval_min: 60
+  disable_reason: 连接超时，疑似被墙
+- id: github-trending
+  name: GitHub Trending
+  name_display: GitHub Trending
+  url: https://api.github.com/search/repositories?q=topic:artificial-intelligence+created:>7d&sort=stars&order=desc
+  type: api
+  tier: 1
+  language: en
+  category_weights: &id003
+    ai-models: 0.2
+    ai-products: 0.2
+    industry: 0.2
+    paper: 0.1
+    tip: 0.3
+  enabled: true
+  fetch_interval_min: 60
+- id: hacker-news
+  name: Hacker News
+  name_display: Hacker News
+  url: https://hacker-news.firebaseio.com/v0/topstories.json
+  type: api
+  tier: 1
+  language: en
+  category_weights: *id003
+  enabled: true
+  fetch_interval_min: 60
+- id: techcrunch-ai
+  name: TechCrunch AI
+  name_display: TechCrunch AI
+  url: https://techcrunch.com/category/artificial-intelligence/feed/
+  type: rss
+  tier: 1
+  language: en
+  category_weights: *id001
+  enabled: true
+  fetch_interval_min: 60
+- id: theverge-ai
+  name: The Verge AI
+  name_display: The Verge AI
+  url: https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
+  type: rss
+  tier: 1
+  language: en
+  category_weights: *id001
+  enabled: true
+  fetch_interval_min: 60
+- id: venturebeat-ai
+  name: VentureBeat AI
+  name_display: VentureBeat AI
+  url: https://venturebeat.com/category/ai/feed/
+  type: rss
+  tier: 1
+  language: en
+  category_weights: *id001
+  enabled: true
+  fetch_interval_min: 60
+- id: arstechnica-ai
+  name: Ars Technica AI
+  name_display: Ars Technica AI
+  url: https://feeds.arstechnica.com/arstechnica/technology-lab/
+  type: rss
+  tier: 1
+  language: en
+  category_weights: *id001
+  enabled: true
+  fetch_interval_min: 60
+- id: arxiv-ai
+  name: arXiv AI
+  name_display: arXiv AI
+  url: https://export.arxiv.org/rss/cs.AI
+  type: rss
+  tier: 1
+  language: en
+  category_weights: &id004
+    ai-models: 0.2
+    ai-products: 0.05
+    industry: 0.05
+    paper: 0.6
+    tip: 0.1
+  enabled: true
+  fetch_interval_min: 60
+  fetch_timeout: 60
+- id: arxiv-ml
+  name: arXiv ML
+  name_display: arXiv ML
+  url: https://export.arxiv.org/rss/cs.LG
+  type: rss
+  tier: 1
+  language: en
+  category_weights: *id004
+  enabled: true
+  fetch_interval_min: 60
+  fetch_timeout: 60
+- id: arxiv-cl
+  name: arXiv CL
+  name_display: arXiv CL
+  url: https://export.arxiv.org/rss/cs.CL
+  type: rss
+  tier: 1
+  language: en
+  category_weights: *id004
+  enabled: true
+  fetch_interval_min: 60
+  fetch_timeout: 60
+- id: arxiv-cv
+  name: arXiv CV
+  name_display: arXiv CV
+  url: https://export.arxiv.org/rss/cs.CV
+  type: rss
+  tier: 1
+  language: en
+  category_weights: *id004
+  enabled: true
+  fetch_interval_min: 60
+  fetch_timeout: 60
+- id: huggingface-papers
+  name: Hugging Face Papers
+  name_display: Hugging Face Papers
+  url: https://huggingface.co/api/daily_papers
+  type: api
+  tier: 1
+  language: en
+  category_weights: *id004
+  enabled: false
+  fetch_interval_min: 60
+  disable_reason: 连接超时，疑似被墙
+- id: producthunt-ai
+  name: Product Hunt AI
+  name_display: Product Hunt AI
+  url: https://www.producthunt.com/feed?category=ai
+  type: rss
+  tier: 1
+  language: en
+  category_weights: *id001
+  enabled: true
+  fetch_interval_min: 60
+- id: chaping
+  name: 差评
+  name_display: 差评
+  url: https://chaping.cn/feed
+  type: rss
+  tier: 2
+  language: zh
+  category_weights: *id001
+  enabled: false
+  fetch_interval_min: 60
+  disable_reason: 网站不稳定，暂时关闭
+- id: infoq-ai
+  name: InfoQ AI
+  name_display: InfoQ AI
+  url: https://www.infoq.cn/feed
+  type: rss
+  tier: 2
+  language: zh
+  category_weights: *id001
+  enabled: true
+  fetch_interval_min: 60
+- id: leiphone
+  name: 雷峰网
+  name_display: 雷峰网
+  url: https://www.leiphone.com/feed
+  type: rss
+  tier: 2
+  language: zh
+  category_weights: *id001
+  enabled: true
+  fetch_interval_min: 60
+- id: tencent-ai-lab
+  name: 腾讯 AI Lab
+  name_display: 腾讯 AI Lab
+  url: https://ai.tencent.com/ailab/zh/feed/
+  type: rss
+  tier: 2
+  language: zh
+  category_weights: *id002
+  enabled: true
+  fetch_interval_min: 60
+  fetch_timeout: 30
+- id: alibaba-damo
+  name: 阿里达摩院
+  name_display: 阿里达摩院
+  url: https://damo.alibaba.com/rss/news/zh
+  type: rss
+  tier: 2
+  language: zh
+  category_weights: *id002
+  enabled: false
+  fetch_interval_min: 60
+  disable_reason: RSS 返回 HTML 页面，官方已停用
+  fetch_timeout: 30
+- id: baidu-ai
+  name: 百度 AI
+  name_display: 百度 AI
+  url: https://ai.baidu.com/news/rss
+  type: rss
+  tier: 2
+  language: zh
+  category_weights: *id002
+  enabled: false
+  fetch_interval_min: 60
+  disable_reason: RSS 返回 404 页面，官方已停用
+  fetch_timeout: 30
+- id: mit-tech-review
+  name: MIT Tech Review AI
+  name_display: MIT Tech Review AI
+  url: https://www.technologyreview.com/topic/artificial-intelligence/feed/
+  type: rss
+  tier: 2
+  language: en
+  category_weights: *id001
+  enabled: true
+  fetch_interval_min: 60
+- id: wired-ai
+  name: Wired AI
+  name_display: Wired AI
+  url: https://www.wired.com/feed/tag/ai/latest/rss
+  type: rss
+  tier: 2
+  language: en
+  category_weights: *id001
+  enabled: true
+  fetch_interval_min: 60
+- id: zdnet-ai
+  name: ZDNet AI
+  name_display: ZDNet AI
+  url: https://www.zdnet.com/topic/artificial-intelligence/rss.xml
+  type: rss
+  tier: 2
+  language: en
+  category_weights: *id001
+  enabled: true
+  fetch_interval_min: 60
+- id: nvidia-blog
+  name: NVIDIA Blog AI
+  name_display: NVIDIA Blog AI
+  url: https://blogs.nvidia.com/feed/
+  type: rss
+  tier: 2
+  language: en
+  category_weights: *id002
+  enabled: true
+  fetch_interval_min: 60
+- id: stability-ai
+  name: Stability AI Blog
+  name_display: Stability AI（GitHub Releases）
+  url: https://github.com/Stability-AI/generative-models/releases.atom
+  type: rss
+  tier: 2
+  language: en
+  category_weights: *id002
+  enabled: true
+  fetch_interval_min: 60
+- id: mistral-ai
+  name: Mistral AI Blog
+  name_display: Mistral AI Blog
+  url: https://mistral.ai/news/feed.xml
+  type: rss
+  tier: 2
+  language: en
+  category_weights: *id002
+  enabled: false
+  fetch_interval_min: 60
+  disable_reason: 访问超时，疑似被墙
+- id: cohere
+  name: Cohere Blog
+  name_display: Cohere Blog（RSSHub）
+  url: https://rsshub.rssforever.com/cohere/blog
+  type: rsshub
+  tier: 2
+  language: en
+  category_weights: *id002
+  enabled: true
+  fetch_interval_min: 60
+- id: ai-weirdness
+  name: AI Weirdness
+  name_display: AI Weirdness
+  url: https://www.aiweirdness.com/feed/
+  type: rss
+  tier: 2
+  language: en
+  category_weights: &id005
+    ai-models: 0.2
+    ai-products: 0.1
+    industry: 0.1
+    paper: 0.2
+    tip: 0.4
+  enabled: true
+  fetch_interval_min: 60
+- id: import-ai
+  name: Import AI
+  name_display: Import AI
+  url: https://jack-clark.net/feed/
+  type: rss
+  tier: 2
+  language: en
+  category_weights: *id001
+  enabled: true
+  fetch_interval_min: 60
+- id: ai-news
+  name: AI News
+  name_display: AI News
+  url: https://www.artificialintelligence-news.com/feed/
+  type: rss
+  tier: 2
+  language: en
+  category_weights: *id001
+  enabled: false
+  fetch_interval_min: 60
+  disable_reason: Cloudflare 403，暂跳过
+- id: analytics-india
+  name: Analytics India Mag
+  name_display: Analytics India Mag
+  url: https://analyticsindiamag.com/feed/
+  type: rss
+  tier: 2
+  language: en
+  category_weights: *id001
+  enabled: false
+  fetch_interval_min: 60
+  disable_reason: WAF 拦截，暂跳过
+- id: synced-review
+  name: Synced Review
+  name_display: Synced Review
+  url: https://syncedreview.com/feed/
+  type: rss
+  tier: 2
+  language: en
+  category_weights: *id004
+  enabled: true
+  fetch_interval_min: 60
+- id: zhihu-ai-hot
+  name: 知乎 AI 热榜
+  name_display: 知乎 AI 热榜
+  url: https://rsshub.app/zhihu/hot/total
+  type: rsshub
+  tier: 3
+  language: zh
+  category_weights: *id003
+  enabled: false
+  fetch_interval_min: 60
+  disable_reason: 知乎反爬严重，暂用 RSSHub 备用
+- id: acl-anthology
+  name: ACL Anthology
+  name_display: ACL Anthology
+  url: https://aclanthology.org/feed/
+  type: rss
+  tier: 3
+  language: en
+  category_weights: *id004
+  enabled: false
+  fetch_interval_min: 60
+  disable_reason: 官方 RSS 不可用
+- id: icml
+  name: ICML
+  name_display: ICML
+  url: https://icml.cc/Conferences/2025/feed.xml
+  type: rss
+  tier: 3
+  language: en
+  category_weights: *id004
+  enabled: false
+  fetch_interval_min: 60
+  disable_reason: 官方 RSS 不可用
+- id: neurips
+  name: NeurIPS
+  name_display: NeurIPS
+  url: https://neurips.cc/Conferences/2025/feed.xml
+  type: rss
+  tier: 3
+  language: en
+  category_weights: *id004
+  enabled: false
+  fetch_interval_min: 60
+  disable_reason: 官方 RSS 不可用
+- id: the-decoder
+  name: The Decoder
+  name_display: The Decoder
+  url: https://the-decoder.com/feed/
+  type: rss
+  tier: 3
+  language: en
+  category_weights: *id001
+  enabled: true
+  fetch_interval_min: 60
+- id: mlops-community
+  name: MLOps Community
+  name_display: MLOps Community
+  url: https://mlops.community/feed/
+  type: rss
+  tier: 3
+  language: en
+  category_weights: *id001
+  enabled: false
+  fetch_interval_min: 60
+  disable_reason: 官方 RSS 不可用
+- id: lil-log
+  name: Lil'Log
+  name_display: Lil'Log
+  url: https://lilianweng.github.io/index.xml
+  type: rss
+  tier: 3
+  language: en
+  category_weights: *id005
+  enabled: true
+  fetch_interval_min: 60
+- id: chip-huyen
+  name: Chip Huyen Blog
+  name_display: Chip Huyen Blog
+  url: https://huyenchip.com/feed.xml
+  type: rss
+  tier: 3
+  language: en
+  category_weights: *id005
+  enabled: true
+  fetch_interval_min: 60
+- id: karpathy
+  name: Andrej Karpathy Blog
+  name_display: Andrej Karpathy Blog
+  url: https://karpathy.github.io/feed.xml
+  type: rss
+  tier: 3
+  language: en
+  category_weights: *id005
+  enabled: true
+  fetch_interval_min: 60

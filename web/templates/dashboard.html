@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 知识侦察兵 · Dashboard</title>
+  <!-- 微信/社交分享 -->
+  <meta property="og:title" content="AI 知识侦察兵 · 日报" />
+  <meta property="og:description" content="AI 领域每日精选，过滤噪音，只留精华" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a2332;
+      --surface2: #243044;
+      --text: #e7ecf3;
+      --muted: #8b9cb3;
+      --accent: #3b82f6;
+      --accent2: #60a5fa;
+      --border: #2d3a4f;
+      --score: #34d399;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 1rem 1.25rem 3rem; }
+    header {
+      padding: 1.5rem 0 1rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.25rem;
+    }
+    header h1 { font-size: 1.5rem; font-weight: 700; }
+    header h1 span { color: var(--accent2); }
+    header .sub { color: var(--muted); margin-top: 0.35rem; font-size: 0.95rem; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.15rem;
+      margin-bottom: 1rem;
+    }
+    .card h2 { font-size: 1rem; margin-bottom: 0.75rem; color: var(--accent2); }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+    }
+    .stat-item {
+      background: var(--surface2);
+      border-radius: 8px;
+      padding: 0.65rem 0.85rem;
+    }
+    .stat-item .label { font-size: 0.78rem; color: var(--muted); }
+    .stat-item .value { font-size: 1.15rem; font-weight: 600; margin-top: 0.15rem; }
+    .top3-list { list-style: none; }
+    .top3-list li {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .top3-list li:last-child { border-bottom: none; }
+    .rank {
+      flex-shrink: 0;
+      width: 1.75rem;
+      height: 1.75rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .top3-body { flex: 1; min-width: 0; }
+    .top3-body a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .top3-body a:hover { color: var(--accent2); }
+    .meta { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+    .score { color: var(--score); font-weight: 600; }
+    .cat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .cat-chip {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.85rem;
+    }
+    .section-block { margin-bottom: 1.25rem; }
+    .section-block h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-list { list-style: none; }
+    .article-list li {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    .article-list li a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+    .article-list li a:hover { color: var(--accent2); }
+    .article-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-top: 0.35rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .empty { color: var(--muted); font-size: 0.9rem; padding: 0.5rem 0; }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 600px) {
+      .top3-body a { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>🔭 <span>AI 知识侦察兵</span></h1>
+      {% if empty %}
+      <p class="sub">等待首次日报生成 · Cron 每日 07:00（北京时间）自动更新</p>
+      {% else %}
+      <p class="sub">{{ daily.date }} 日报 · 生成于 {{ daily.generated_at[:19] if daily.generated_at else '-' }}</p>
+      {% endif %}
+    </header>
+
+    {% if empty %}
+    <section class="card">
+      <h2>📭 暂无日报</h2>
+      <p class="empty">数据尚未生成。Render Cron 首次跑完后刷新本页即可看到 TOP 3 与五大板块精选。</p>
+    </section>
+    {% else %}
+
+    <section class="card">
+      <h2>📊 今日概览</h2>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="label">采集信源</div>
+          <div class="value">
+            {% if sources_success is not none and sources_total is not none %}
+              {{ sources_success }}/{{ sources_total }}
+            {% else %}
+              {{ daily.raw_count }} 篇采集
+            {% endif %}
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="label">L1 → L2</div>
+          <div class="value">{{ daily.l1_count }} → {{ daily.l2_count }}</div>
+        </div>
+        <div class="stat-item">
+          <div class="label">过滤效率</div>
+          <div class="value">{{ "%.1f"|format(filter_efficiency * 100) }}%</div>
+        </div>
+        <div class="stat-item">
+          <div class="label">L2 优质率</div>
+          <div class="value">
+            {% if quality_rate is not none %}{{ "%.0f"|format(quality_rate * 100) }}%{% else %}-{% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>📌 TOP 3</h2>
+      {% if top3 %}
+      <ol class="top3-list">
+        {% for item in top3 %}
+        <li>
+          <div class="rank">{{ loop.index }}</div>
+          <div class="top3-body">
+            <a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title_cn or item.title }}</a>
+            <div class="meta">{{ item.source_name }} · <span class="score">{{ item.score|int }} 分</span></div>
+          </div>
+        </li>
+        {% endfor %}
+      </ol>
+      {% else %}
+      <p class="empty">暂无精选文章</p>
+      {% endif %}
+    </section>
+
+    <section class="card">
+      <h2>板块分布</h2>
+      <div class="cat-row">
+        {% for key, icon, label in category_sections %}
+        <span class="cat-chip">{{ icon }} {{ label.split("/")[0] }} {{ category_counts.get(key, 0) }} 篇</span>
+        {% endfor %}
+      </div>
+    </section>
+
+    {% for key, icon, label in category_sections %}
+    {% set section_items = grouped.get(key, []) %}
+    {% if section_items %}
+    <section class="section-block">
+      <h3>{{ icon }} {{ label }}</h3>
+      <ul class="article-list">
+        {% for item in section_items|sort(attribute='score', reverse=true) %}
+        <li>
+          <a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title_cn or item.title }}</a>
+          <div class="article-meta">
+            <span>{{ item.source_name }}</span>
+            <span class="score">{{ item.score|int }} 分</span>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+    {% endfor %}
+
+    {% endif %}
+
+    <footer>由知识侦察兵 v2.0 驱动 · <a href="/api/v1/health" style="color:var(--accent2)">API</a></footer>
+  </div>
+</body>
+</html>
