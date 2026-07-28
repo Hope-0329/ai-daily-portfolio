@@ -113,6 +113,8 @@ class ArticleClassifier:
 
     async def classify_article(self, article: Article) -> Article:
         """为单篇文章分类。"""
+        if article.pre_classified and article.category is not None:
+            return article
         if article.category is not None:
             return article
 

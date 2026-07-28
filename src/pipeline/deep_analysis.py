@@ -127,7 +127,9 @@ class DeepAnalyzer:
         candidates = [
             article
             for article in ranked
-            if _priority_tier(article, self.settings) <= 2
+            if article.source_id != "aihot"
+            and not article.pre_summarized
+            and _priority_tier(article, self.settings) <= 2
         ][:max_count]
 
         if not candidates:

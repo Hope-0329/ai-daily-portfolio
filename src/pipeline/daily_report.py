@@ -98,12 +98,19 @@ class DailyReportBuilder:
         return payload
 
     @staticmethod
+    def format_source_name(article: Article) -> str:
+        """格式化来源展示名；AIHOT 文章显示为「AIHOT · 原信源」。"""
+        if article.source_id == "aihot":
+            return f"AIHOT · {article.source_name}"
+        return article.source_name
+
+    @staticmethod
     def _articles_block(articles: list[Article]) -> str:
         lines: list[str] = []
         for index, article in enumerate(articles, start=1):
             lines.append(
                 f"{index}. [{article.id}] {display_title(article)} | "
-                f"来源: {article.source_name} | 评分: {article.score}"
+                f"来源: {DailyReportBuilder.format_source_name(article)} | 评分: {article.score}"
             )
         return "\n".join(lines)
 
@@ -236,7 +243,7 @@ class DailyReportBuilder:
                 "| {event} | {summary} | {source} | {score} |".format(
                     event=self._format_event_cell(article),
                     summary=article.summary or article.summary_raw or "-",
-                    source=article.source_name,
+                    source=self.format_source_name(article),
                     score=int(article.score),
                 )
             )

@@ -1,4 +1,21 @@
 sources:
+- id: aihot
+  name: AIHOT
+  name_display: AIHOT
+  url: https://aihot.virxact.com/api/v1/items?mode=selected&window=24h
+  type: api
+  tier: 1
+  language: zh
+  category_weights:
+    ai-models: 0.8
+    ai-products: 0.8
+    industry: 0.8
+    paper: 0.8
+    tip: 0.8
+  enabled: true
+  fetch_interval_min: 60
+  api_headers:
+    User-Agent: aihot-skill/1.2.0 (+https://aihot.virxact.com/aihot-skill/)
 - id: qbitai
   name: 量子位
   name_display: 量子位
@@ -14,17 +31,6 @@ sources:
     tip: 0.05
   enabled: true
   fetch_interval_min: 60
-- id: jiqizhixin
-  name: 机器之心
-  name_display: 机器之心
-  url: https://www.jiqizhixin.com/rss
-  type: rss
-  tier: 1
-  language: zh
-  category_weights: *id001
-  enabled: true
-  fetch_interval_min: 60
-  fetch_timeout: 30
 - id: 36kr-ai
   name: 36氪 AI
   name_display: 36氪 AI
@@ -111,38 +117,6 @@ sources:
   category_weights: *id002
   enabled: true
   fetch_interval_min: 60
-- id: meta-ai
-  name: Meta AI Blog
-  name_display: Meta AI Blog
-  url: https://ai.meta.com/blog/feed/
-  type: rss
-  tier: 1
-  language: en
-  category_weights: *id002
-  enabled: false
-  fetch_interval_min: 60
-  disable_reason: 访问超时，疑似被墙
-- id: microsoft-ai
-  name: Microsoft AI Blog
-  name_display: Microsoft AI Blog
-  url: https://news.microsoft.com/source/topics/ai/feed/
-  type: rss
-  tier: 1
-  language: en
-  category_weights: *id002
-  enabled: true
-  fetch_interval_min: 60
-- id: huggingface-blog
-  name: Hugging Face Blog
-  name_display: Hugging Face Blog
-  url: https://huggingface.co/blog/feed.xml
-  type: rss
-  tier: 1
-  language: en
-  category_weights: *id002
-  enabled: false
-  fetch_interval_min: 60
-  disable_reason: 连接超时，疑似被墙
 - id: github-trending
   name: GitHub Trending
   name_display: GitHub Trending
@@ -257,17 +231,6 @@ sources:
   enabled: true
   fetch_interval_min: 60
   fetch_timeout: 60
-- id: huggingface-papers
-  name: Hugging Face Papers
-  name_display: Hugging Face Papers
-  url: https://huggingface.co/api/daily_papers
-  type: api
-  tier: 1
-  language: en
-  category_weights: *id004
-  enabled: false
-  fetch_interval_min: 60
-  disable_reason: 连接超时，疑似被墙
 - id: producthunt-ai
   name: Product Hunt AI
   name_display: Product Hunt AI
@@ -278,17 +241,6 @@ sources:
   category_weights: *id001
   enabled: true
   fetch_interval_min: 60
-- id: chaping
-  name: 差评
-  name_display: 差评
-  url: https://chaping.cn/feed
-  type: rss
-  tier: 2
-  language: zh
-  category_weights: *id001
-  enabled: false
-  fetch_interval_min: 60
-  disable_reason: 网站不稳定，暂时关闭
 - id: infoq-ai
   name: InfoQ AI
   name_display: InfoQ AI
@@ -309,41 +261,6 @@ sources:
   category_weights: *id001
   enabled: true
   fetch_interval_min: 60
-- id: tencent-ai-lab
-  name: 腾讯 AI Lab
-  name_display: 腾讯 AI Lab
-  url: https://ai.tencent.com/ailab/zh/feed/
-  type: rss
-  tier: 2
-  language: zh
-  category_weights: *id002
-  enabled: true
-  fetch_interval_min: 60
-  fetch_timeout: 30
-- id: alibaba-damo
-  name: 阿里达摩院
-  name_display: 阿里达摩院
-  url: https://damo.alibaba.com/rss/news/zh
-  type: rss
-  tier: 2
-  language: zh
-  category_weights: *id002
-  enabled: false
-  fetch_interval_min: 60
-  disable_reason: RSS 返回 HTML 页面，官方已停用
-  fetch_timeout: 30
-- id: baidu-ai
-  name: 百度 AI
-  name_display: 百度 AI
-  url: https://ai.baidu.com/news/rss
-  type: rss
-  tier: 2
-  language: zh
-  category_weights: *id002
-  enabled: false
-  fetch_interval_min: 60
-  disable_reason: RSS 返回 404 页面，官方已停用
-  fetch_timeout: 30
 - id: mit-tech-review
   name: MIT Tech Review AI
   name_display: MIT Tech Review AI
@@ -394,17 +311,6 @@ sources:
   category_weights: *id002
   enabled: true
   fetch_interval_min: 60
-- id: mistral-ai
-  name: Mistral AI Blog
-  name_display: Mistral AI Blog
-  url: https://mistral.ai/news/feed.xml
-  type: rss
-  tier: 2
-  language: en
-  category_weights: *id002
-  enabled: false
-  fetch_interval_min: 60
-  disable_reason: 访问超时，疑似被墙
 - id: cohere
   name: Cohere Blog
   name_display: Cohere Blog（RSSHub）
@@ -440,28 +346,6 @@ sources:
   category_weights: *id001
   enabled: true
   fetch_interval_min: 60
-- id: ai-news
-  name: AI News
-  name_display: AI News
-  url: https://www.artificialintelligence-news.com/feed/
-  type: rss
-  tier: 2
-  language: en
-  category_weights: *id001
-  enabled: false
-  fetch_interval_min: 60
-  disable_reason: Cloudflare 403，暂跳过
-- id: analytics-india
-  name: Analytics India Mag
-  name_display: Analytics India Mag
-  url: https://analyticsindiamag.com/feed/
-  type: rss
-  tier: 2
-  language: en
-  category_weights: *id001
-  enabled: false
-  fetch_interval_min: 60
-  disable_reason: WAF 拦截，暂跳过
 - id: synced-review
   name: Synced Review
   name_display: Synced Review
@@ -472,50 +356,6 @@ sources:
   category_weights: *id004
   enabled: true
   fetch_interval_min: 60
-- id: zhihu-ai-hot
-  name: 知乎 AI 热榜
-  name_display: 知乎 AI 热榜
-  url: https://rsshub.app/zhihu/hot/total
-  type: rsshub
-  tier: 3
-  language: zh
-  category_weights: *id003
-  enabled: false
-  fetch_interval_min: 60
-  disable_reason: 知乎反爬严重，暂用 RSSHub 备用
-- id: acl-anthology
-  name: ACL Anthology
-  name_display: ACL Anthology
-  url: https://aclanthology.org/feed/
-  type: rss
-  tier: 3
-  language: en
-  category_weights: *id004
-  enabled: false
-  fetch_interval_min: 60
-  disable_reason: 官方 RSS 不可用
-- id: icml
-  name: ICML
-  name_display: ICML
-  url: https://icml.cc/Conferences/2025/feed.xml
-  type: rss
-  tier: 3
-  language: en
-  category_weights: *id004
-  enabled: false
-  fetch_interval_min: 60
-  disable_reason: 官方 RSS 不可用
-- id: neurips
-  name: NeurIPS
-  name_display: NeurIPS
-  url: https://neurips.cc/Conferences/2025/feed.xml
-  type: rss
-  tier: 3
-  language: en
-  category_weights: *id004
-  enabled: false
-  fetch_interval_min: 60
-  disable_reason: 官方 RSS 不可用
 - id: the-decoder
   name: The Decoder
   name_display: The Decoder
@@ -526,17 +366,6 @@ sources:
   category_weights: *id001
   enabled: true
   fetch_interval_min: 60
-- id: mlops-community
-  name: MLOps Community
-  name_display: MLOps Community
-  url: https://mlops.community/feed/
-  type: rss
-  tier: 3
-  language: en
-  category_weights: *id001
-  enabled: false
-  fetch_interval_min: 60
-  disable_reason: 官方 RSS 不可用
 - id: lil-log
   name: Lil'Log
   name_display: Lil'Log

@@ -19,12 +19,21 @@ from src.database import (
     upsert_source,
 )
 from src.models import Article, Source, SourceType
+from src.sources.aihot import AIHOTCollector
 from src.sources.api import APICollector
 from src.sources.base import SourceCollector
 from src.sources.rss import RSSCollector
 from src.sources.web import WebCollector
 
 logger = logging.getLogger(__name__)
+
+
+def load_sources(config_path: str | Path | None = None, settings: Settings | None = None) -> list[Source]:
+    """加载已启用的信源列表（供脚本与测试使用）。"""
+    cfg = settings or get_settings()
+    path = Path(config_path) if config_path else cfg.sources_config
+    registry = SourceRegistry(path, settings=cfg)
+    return registry.get_enabled_sources()
 
 
 class SourceRegistry:
@@ -44,6 +53,7 @@ class SourceRegistry:
             SourceType.API: APICollector(self.settings),
             SourceType.WEB: WebCollector(self.settings),
         }
+        self._aihot_collector = AIHOTCollector(self.settings)
 
     def _load_sources(self) -> list[Source]:
         """从 YAML 文件加载信源配置。"""
@@ -85,6 +95,8 @@ class SourceRegistry:
 
     def get_collector(self, source: Source) -> SourceCollector:
         """根据信源类型返回对应采集器。"""
+        if source.id == "aihot":
+            return self._aihot_collector
         collector = self._collectors.get(source.type)
         if collector is None:
             raise ValueError(f"不支持的信源类型: {source.type}")

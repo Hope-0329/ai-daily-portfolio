@@ -49,6 +49,7 @@ class Source(BaseModel):
     fetch_interval_min: int = 60
     fetch_timeout: int | None = Field(default=None, description="单源超时秒数，覆盖全局配置")
     disable_reason: str | None = Field(default=None, description="禁用原因说明")
+    api_headers: dict[str, str] = Field(default_factory=dict, description="API 信源自定义请求头")
 
 
 class Article(BaseModel):
@@ -71,6 +72,8 @@ class Article(BaseModel):
     quality_level: QualityLevel | None = None
     language: str | None = None
     merged_from: list[str] = Field(default_factory=list)
+    pre_summarized: bool = Field(default=False, description="预摘要源（如 AIHOT），跳过 LLM 摘要")
+    pre_classified: bool = Field(default=False, description="预分类源，跳过 LLM 分类")
 
 
 class DailyReport(BaseModel):

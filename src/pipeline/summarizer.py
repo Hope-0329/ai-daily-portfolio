@@ -43,6 +43,11 @@ class ArticleSummarizer:
 
     async def summarize_article(self, article: Article) -> Article:
         """为单篇文章生成一句话摘要。"""
+        if article.pre_summarized:
+            existing = article.summary or article.summary_raw
+            if existing:
+                return article.model_copy(update={"summary": existing})
+            return article
         title = display_title(article)
         summary_raw = article.summary_cn or article.summary_raw or article.summary or "无"
         content = (article.content or "")[:500]

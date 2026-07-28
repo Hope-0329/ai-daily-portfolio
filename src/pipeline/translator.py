@@ -69,6 +69,8 @@ class ArticleTranslator:
 
     async def translate_article(self, article: Article) -> Article:
         """翻译单篇文章的标题与摘要。"""
+        if article.pre_summarized:
+            return article
         if not self._needs_translation(article):
             return article
 

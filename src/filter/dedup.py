@@ -27,6 +27,39 @@ SAME_EVENT_PROMPT = """以下两篇 AI 新闻是否在报道同一件事？只�
 ORIGINAL_TITLE_SUFFIX = re.compile(r"\s*\[原文：[^\]]+\]\s*")
 
 
+def normalize_url(url: str) -> str:
+    """标准化 URL 用于跨源去重（去 www、末尾斜杠，统一小写）。"""
+    parsed = urlparse(url.strip())
+    scheme = (parsed.scheme or "https").lower()
+    host = parsed.netloc.lower()
+    if host.startswith("www."):
+        host = host[4:]
+    path = parsed.path.rstrip("/") or ""
+    return f"{scheme}://{host}{path}"
+
+
+def dedupe_aihot_by_url(articles: list[Article]) -> list[Article]:
+    """
+    URL 级去重：AIHOT 与自采报道同一原文时，优先保留自采版本（有完整正文）。
+    应在 L1 过滤之前执行。
+    """
+    grouped: dict[str, list[Article]] = defaultdict(list)
+    for article in articles:
+        grouped[normalize_url(article.url)].append(article)
+
+    kept: list[Article] = []
+    for cluster in grouped.values():
+        if len(cluster) == 1:
+            kept.append(cluster[0])
+            continue
+        self_collected = [item for item in cluster if item.source_id != "aihot"]
+        if self_collected:
+            kept.append(max(self_collected, key=lambda item: item.score))
+        else:
+            kept.append(max(cluster, key=lambda item: item.score))
+    return kept
+
+
 def normalize_title_for_dedup(title: str) -> str:
     """去重前归一化标题：小写并去掉翻译原文标记。"""
     cleaned = ORIGINAL_TITLE_SUFFIX.sub("", title or "")

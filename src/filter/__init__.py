@@ -9,7 +9,7 @@ import yaml
 from openai import AsyncOpenAI
 
 from src.config import Settings, get_settings
-from src.filter.dedup import EventDeduplicator
+from src.filter.dedup import EventDeduplicator, dedupe_aihot_by_url
 from src.filter.layer1_rule import apply_l1_filter
 from src.filter.layer2_llm import Layer2LLMFilter
 from src.filter.snr import calculate_snr
@@ -219,7 +219,8 @@ async def filter_pipeline(
     tiers = source_tier_map or load_source_tier_map(cfg.sources_config)
 
     raw_count = len(articles)
-    l1_results, l1_rejected = apply_l1_filter(articles, tiers, cfg)
+    url_deduped = dedupe_aihot_by_url(articles)
+    l1_results, l1_rejected = apply_l1_filter(url_deduped, tiers, cfg)
 
     deduplicator = EventDeduplicator(settings=cfg, llm_client=llm_client)
     dedup_results = await deduplicator.deduplicate(l1_results)
@@ -256,6 +257,7 @@ async def filter_pipeline(
         "l1_pass_count": len(l1_results),
         "l1_reject_count": len(l1_rejected),
         "dedup_count": len(dedup_results),
+        "url_dedup_removed": raw_count - len(url_deduped),
         "l2_count": len(l2_results),
         "merged_events": sum(1 for article in dedup_results if article.merged_from),
         "l2_high_quality_count": l2_high_quality_count,

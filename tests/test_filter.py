@@ -381,7 +381,16 @@ async def test_layer2_llm_returns_ranked_json_results() -> None:
 
 @pytest.mark.asyncio
 async def test_filter_pipeline_end_to_end_with_mock_llm() -> None:
-    dedup_articles = POSITIVE_ARTICLES[:6] + NOISE_ARTICLES
+    now = datetime.now(timezone.utc)
+    dedup_articles = [
+        article.model_copy(
+            update={
+                "published_at": now - timedelta(hours=2),
+                "fetched_at": now,
+            }
+        )
+        for article in POSITIVE_ARTICLES[:6] + NOISE_ARTICLES
+    ]
     mock_client = MagicMock()
     mock_client.chat = MagicMock()
     mock_client.chat.completions = MagicMock()

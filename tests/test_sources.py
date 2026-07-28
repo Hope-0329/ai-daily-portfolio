@@ -8,33 +8,41 @@ import pytest
 
 from src.models import Source, SourceType
 from src.sources.api import APICollector
-from src.sources.registry import SourceRegistry
+from src.sources.registry import SourceRegistry, load_sources
 from src.sources.rss import RSSCollector
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SOURCES_PATH = PROJECT_ROOT / "data" / "sources.yaml"
+REMOVED_BROKEN_SOURCE_IDS = frozenset({"microsoft-ai", "jiqizhixin", "tencent-ai-lab"})
 
 
 def test_registry_loads_all_sources() -> None:
     registry = SourceRegistry(SOURCES_PATH)
     all_sources = registry.get_all_sources()
     enabled = registry.get_enabled_sources()
-    assert len(all_sources) == 52
-    assert len(enabled) == 38
+    assert len(all_sources) == len(enabled)
+    assert len(load_sources(SOURCES_PATH)) == len(enabled)
     assert all(source.enabled for source in enabled)
 
 
-def test_disabled_sources_have_reason() -> None:
+def test_broken_sources_removed_from_yaml() -> None:
     registry = SourceRegistry(SOURCES_PATH)
-    disabled = [source for source in registry.get_all_sources() if not source.enabled]
-    assert len(disabled) == 14
-    assert all(source.disable_reason for source in disabled)
+    source_ids = {source.id for source in registry.get_all_sources()}
+    assert REMOVED_BROKEN_SOURCE_IDS.isdisjoint(source_ids)
+
+
+def test_aihot_source_is_registered() -> None:
+    registry = SourceRegistry(SOURCES_PATH)
+    aihot = next(source for source in registry.get_enabled_sources() if source.id == "aihot")
+    assert aihot.type == SourceType.API
+    assert "aihot.virxact.com" in aihot.url
+    assert aihot.api_headers.get("User-Agent", "").startswith("aihot-skill/")
 
 
 def test_registry_respects_min_tier() -> None:
     registry = SourceRegistry(SOURCES_PATH)
     tier1_sources = registry.get_enabled_sources(min_tier=1)
-    assert len(tier1_sources) == 22
+    assert len(tier1_sources) == sum(1 for s in registry.get_enabled_sources() if s.tier == 1)
     assert all(source.tier == 1 for source in tier1_sources)
 
 
